@@ -1,0 +1,72 @@
+.window-Container {
+  height: 100vh; /* Set the container height to 100% of the viewport height */
+  border: 1px solid #000000;
+  display: flex;
+  flex-direction: column;
+}
+
+.window-header {
+  padding: 0.5rem;
+  border-bottom: 1px solid #000000;
+}
+
+.window-main {
+  height: 100%; /* Allow the main section to grow and occupy the remaining space */
+  border-bottom: 1px solid #000000;
+  overflow: auto;
+}
+
+.window-padding {
+  padding: 0.5rem;
+}
+
+.window-form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* .window-myContainer {
+  height: 100vh;
+}
+
+.window-custom-main {
+  height: 100%;
+} */
+
+/* .window-border {
+  border: 1px solid #000000;
+} */
+
+/* .window-border-dark {
+  border-color: #343a40;
+} */
+
+/* .window-d-flex {
+  display: flex;
+}
+
+.window-flex-column {
+  flex-direction: column;
+} */
+
+/* .window-p-2 {
+  padding: 0.5rem;
+} */
+
+/* .window-border-bottom {
+  border-bottom: 1px solid #000000;
+} */
+
+/* .window-overflow-auto {
+  overflow: auto;
+} */

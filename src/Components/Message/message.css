@@ -1,0 +1,27 @@
+.message-container {
+  background-color: #dcf8c6;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 8px;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.message-sender {
+  font-weight: bold;
+}
+
+.message-time {
+  color: #888888;
+  font-size: 12px;
+}
+
+.message-body {
+  font-size: 14px;
+  line-height: 1.4;
+}

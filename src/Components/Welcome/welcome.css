@@ -1,0 +1,113 @@
+/* .welcome-container {
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  display: flex;
+  border: 2px solid black;
+} */
+
+.welcome-box-window {
+  background-color: #faf0e4;
+  flex: 1;
+  height: 100vh;
+}
+
+.welcome-box-chats {
+  background-color: lightgray;
+  flex: 1;
+  height: 100vh;
+}
+
+.welcome-Container {
+  display: flex;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .welcome-Container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .welcome-Container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .welcome-Container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .welcome-Container {
+    max-width: 1140px;
+  }
+}
+
+/* .welcome-box {
+  flex: 1;
+  height: 100vh;
+} */
+
+/************/
+
+/* Welcome component
+.welcome-container {
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-container .container {
+    width: 100%;
+    max-width: 800px;
+  margin-top: 50px;
+}
+
+.welcome-container .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.welcome-container .col {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.welcome-container .box {
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.welcome-container .box.bg-light {
+  background-color: #f8f9fa;
+}
+
+.welcome-container .box.border {
+  border-color: #000;
+} */
+
+/* Set your desired height
+.welcome-container .scrollable-window {
+  overflow-y: auto;
+  height: 400px; 
+}
+
+.welcome-container .scrollable-chats {
+  overflow-y: auto;
+  height: 400px; 
+  background-color: lightgray;
+} */
