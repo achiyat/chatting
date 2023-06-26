@@ -1,15 +1,15 @@
+import React from "react";
+import { Provider } from "react-redux";
+import { Welcome } from "./Components";
+import store from "./Redux/store";
 import "./App.css";
-import { Aaa, Welcome } from "./Components";
-import { Box } from "./Components/AAA/box";
 
-function App() {
+const App = () => {
   return (
-    <div>
+    <Provider store={store}>
       <Welcome />
-      <Aaa />
-      <Box />
-    </div>
+    </Provider>
   );
-}
+};
 
 export default App;
