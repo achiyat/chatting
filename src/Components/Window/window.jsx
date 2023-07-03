@@ -18,7 +18,14 @@ export const Window = (props) => {
 
   const handleSendMessage = () => {
     if (message.trim() !== "") {
-      setMessages([...messages, message]);
+      const currentTime = new Date();
+      const formattedTime = `${currentTime.getHours()}:${currentTime.getMinutes()}`;
+      const newMessage = {
+        userName: String(username),
+        message: message,
+        time: formattedTime,
+      };
+      setMessages([...messages, newMessage]);
       setMessage("");
     }
     console.log(messages);
@@ -49,8 +56,10 @@ export const Window = (props) => {
               return (
                 <Message
                   key={index}
-                  userName={username}
-                  msg={m}
+                  user={username}
+                  userName={m.userName}
+                  msg={m.message}
+                  time={m.time}
                   onClick={() => handleSelectMessage(index)}
                   selected={isSelected}
                 />
@@ -79,3 +88,15 @@ export const Window = (props) => {
     </div>
   );
 };
+
+// const [msgs, setMsgs] = useState([
+//   {
+//     userName: "achiya",
+//     message:
+//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit aliquid amet",
+//   },
+//   {
+//     userName: "achiya",
+//     message: "Hi, how are you?",
+//   },
+// ]);
