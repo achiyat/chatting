@@ -1,5 +1,5 @@
 .window-Container {
-  height: 100vh; /* Set the container height to 100% of the viewport height */
+  height: 100vh;
   border: 1px solid #000000;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
 }
 
 .window-main {
-  height: 100%; /* Allow the main section to grow and occupy the remaining space */
+  flex: 1;
   border-bottom: 1px solid #000000;
   overflow: auto;
 }
@@ -21,8 +21,8 @@
 }
 
 .window-form-control {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: calc(100% - 40px); /* Adjust the width to leave space for the button */
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
@@ -35,38 +35,12 @@
   box-sizing: border-box;
 }
 
-/* .window-myContainer {
-  height: 100vh;
-}
-
-.window-custom-main {
-  height: 100%;
-} */
-
-/* .window-border {
-  border: 1px solid #000000;
-} */
-
-/* .window-border-dark {
-  border-color: #343a40;
-} */
-
-/* .window-d-flex {
+.send-container {
   display: flex;
+  align-items: center;
 }
 
-.window-flex-column {
-  flex-direction: column;
-} */
-
-/* .window-p-2 {
-  padding: 0.5rem;
-} */
-
-/* .window-border-bottom {
-  border-bottom: 1px solid #000000;
-} */
-
-/* .window-overflow-auto {
-  overflow: auto;
-} */
+.send-icon {
+  margin-left: 10px;
+  cursor: pointer;
+}

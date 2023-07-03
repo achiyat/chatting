@@ -1,22 +1,62 @@
 import React, { useState } from "react";
 import "./chats.css";
 import { ChatBox } from "../ChatBox/chatBox";
-import { Box } from "../AAA/box";
+import { useDispatch } from "react-redux";
+import { setUsername } from "../../Redux/actions";
+import myPIC from "../../img/myPIC.jpg";
 
 export const Chats = (props) => {
+  const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState("");
+  const [chats, setChats] = useState([
+    {
+      userName: "User Name",
+      time: "12:34 PM",
+      message:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit aliquid amet",
+      img: myPIC,
+    },
+    {
+      userName: "achiya",
+      time: "16:00 PM",
+      message: "Hi, how are you?",
+      img: myPIC,
+    },
+  ]);
+
+  // Get the first userName from the chats array, or use "Window" if the array is empty
+  const firstUserName = chats.length > 0 ? chats[0].userName : "Window";
+
+  // Dispatch the setUsername action to set the initial username in the Redux store
+  dispatch(setUsername(firstUserName));
 
   const handleChange = (event) => {
     setSearchQuery(event.target.value);
+  };
+
+  const handleChatBoxClick = (userName) => {
+    console.log(userName);
+    dispatch(setUsername(userName));
   };
 
   return (
     <div className="chats-Container">
       <header className="chats-header">Chats</header>
       <main className="chats-main">
-        <ChatBox />
-        <ChatBox />
-        <Box />
+        {chats && chats !== undefined
+          ? chats.map((c) => {
+              return (
+                <ChatBox
+                  key={c.userName}
+                  userName={c.userName}
+                  time={c.time}
+                  message={c.message}
+                  img={c.img}
+                  onClick={() => handleChatBoxClick(c.userName)}
+                />
+              );
+            })
+          : null}
       </main>
       <footer className="chats-padding">
         <input
