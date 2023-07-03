@@ -10,6 +10,7 @@ export const Window = (props) => {
   const username = useSelector((state) => state.username);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
+  const [selectedMessages, setSelectedMessages] = useState([]);
 
   const handleChange = (event) => {
     setMessage(event.target.value);
@@ -23,15 +24,37 @@ export const Window = (props) => {
     console.log(messages);
   };
 
+  const handleSelectMessage = (index) => {
+    // Toggle the selection of the message
+    const isSelected = selectedMessages.includes(index);
+    if (isSelected) {
+      setSelectedMessages(
+        selectedMessages.filter((msgIndex) => msgIndex !== index)
+      );
+    } else {
+      setSelectedMessages([...selectedMessages, index]);
+    }
+    console.log(selectedMessages);
+  };
+
   return (
     <div className="window-Container">
       <header className="window-header">
-        <HeaderWindow userName={username} />
+        <HeaderWindow userName={username} selectedMessages={selectedMessages} />
       </header>
       <main className="window-main">
         {messages && messages !== undefined
-          ? messages.map((m) => {
-              return <Message userName={username} msg={m} />;
+          ? messages.map((m, index) => {
+              const isSelected = selectedMessages.includes(index);
+              return (
+                <Message
+                  key={index}
+                  userName={username}
+                  msg={m}
+                  onClick={() => handleSelectMessage(index)}
+                  selected={isSelected}
+                />
+              );
             })
           : null}
       </main>

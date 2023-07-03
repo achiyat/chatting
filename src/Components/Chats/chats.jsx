@@ -3,6 +3,7 @@ import "./chats.css";
 import { ChatBox } from "../ChatBox/chatBox";
 import { useDispatch } from "react-redux";
 import { setUsername } from "../../Redux/actions";
+import myPIC from "../../img/myPIC.jpg";
 
 export const Chats = (props) => {
   const dispatch = useDispatch();
@@ -13,11 +14,13 @@ export const Chats = (props) => {
       time: "12:34 PM",
       message:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit aliquid amet",
+      img: myPIC,
     },
     {
       userName: "achiya",
       time: "16:00 PM",
       message: "Hi, how are you?",
+      img: myPIC,
     },
   ]);
 
@@ -48,6 +51,7 @@ export const Chats = (props) => {
                   userName={c.userName}
                   time={c.time}
                   message={c.message}
+                  img={c.img}
                   onClick={() => handleChatBoxClick(c.userName)}
                 />
               );

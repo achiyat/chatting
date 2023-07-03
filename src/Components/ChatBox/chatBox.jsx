@@ -1,10 +1,14 @@
 import React from "react";
 import "./chatBox.css";
 
-export const ChatBox = ({ userName, time, message, onClick }) => {
+export const ChatBox = ({ userName, time, message, img, onClick }) => {
   return (
     <div className="chatBox-container" onClick={onClick}>
-      <div className="chatBox-profile-image"></div>
+      <div className="chatBox-overflow">
+        <div className="chatBox-profile-image">
+          <img src={img} alt="User Profile" />
+        </div>
+      </div>
       <div className="chatBox-content">
         <div className="chatBox-flex">
           <div className="chatBox-user">{userName}</div>
@@ -20,3 +24,7 @@ export const ChatBox = ({ userName, time, message, onClick }) => {
 };
 
 //   <div className="chatBox-overflow"></div>
+
+// import myPIC from "../../../img/myPIC.jpg";
+
+// {/* <div className="chatBox-profile-image"></div> */}
