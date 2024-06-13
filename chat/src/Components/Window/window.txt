@@ -1,0 +1,340 @@
+import React, { useEffect, useState } from "react";
+import { Message } from "../Message/message";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useSelector, useDispatch } from "react-redux";
+import "./window.css";
+import { HeaderWindow } from "../HeaderWindow/headerWindow";
+import { setChatsJson, setGroupJson } from "../../Redux/actions";
+import { v4 as uuid_v4 } from "uuid";
+import { MessageUser, getDetails } from "../../Objects/objDetails";
+
+export const Window = (props) => {
+  const dispatch = useDispatch();
+
+  const reduxUser = useSelector((state) => state.User);
+  // console.log(reduxUser);
+  // console.log(reduxUser.Id);
+  // console.log(reduxUser.Img);
+  // console.log(reduxUser.Name);
+
+  const chatJSON = useSelector((state) => state.chatJson);
+  const groupJson = useSelector((state) => state.GroupJson);
+
+  const [message, setMessage] = useState("");
+  const [selectedMessages, setSelectedMessages] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [messageChange, setMessageChange] = useState(false); // Track whether a message was sent
+  const [searchContent, setSearchContent] = useState("");
+  const isGroupContext = groupJson.hasOwnProperty(reduxUser.Id);
+
+  //const [messageChange, setMessageChange] = useState(false);
+
+  const reduxMyUser = useSelector((state) => state.MyUser);
+  // console.log(reduxMyUser);
+  // console.log(reduxMyUser.Id);
+  // console.log(reduxMyUser.Img);
+  // console.log(reduxMyUser.Name);
+
+  const setInitialChatData = (dataJSON) => {
+    if (!isGroupContext) {
+      dispatch(setChatsJson(dataJSON));
+    }
+
+    if (isGroupContext) {
+      dispatch(setGroupJson(dataJSON));
+    }
+  };
+
+  const handleChange = (event) => {
+    setMessage(event.target.value);
+  };
+
+  const handleSendMessage = () => {
+    if (message.trim() !== "") {
+      // const details = getDetails();
+
+      const newMessage = MessageUser(message, reduxMyUser);
+      // const newMessage = {
+      //   MessagesId: details.NewId,
+      //   IdOfUser: reduxMyUser.Id,
+      //   FromUser: reduxMyUser.Name,
+      //   IfRead: true,
+      //   IfDelete: false,
+      //   IfRemoved: false,
+      //   IfFavorite: false,
+      //   IfEdit: false,
+      //   IfMessageGroup: true,
+      //   Image: reduxMyUser.Img,
+      //   message: message,
+      //   TimeOfMsg: details.TimeNow,
+      //   DateOfMsg: details.DateToday,
+      // };
+
+      console.log(newMessage);
+
+      const updatedMessages = messages.map((m) => ({
+        ...m,
+        IfRead: true,
+      }));
+
+      setMessages([...updatedMessages, newMessage]);
+      setMessage("");
+      setMessageChange(true);
+    }
+  };
+
+  const handleSelectMessage = (message) => {
+    const isSelected = selectedMessages.some(
+      (msg) =>
+        msg.MessagesId === message.MessagesId &&
+        msg.IdOfUser === message.IdOfUser
+    );
+
+    if (isSelected) {
+      setSelectedMessages((prevSelectedMessages) =>
+        prevSelectedMessages.filter(
+          (msg) =>
+            msg.MessagesId !== message.MessagesId ||
+            msg.IdOfUser !== message.IdOfUser
+        )
+      );
+    } else {
+      setSelectedMessages((prevSelectedMessages) => [
+        ...prevSelectedMessages,
+        message,
+      ]);
+    }
+  };
+
+  const handleSetMessages = (chatData) => {
+    if (chatData && chatData.messages) {
+      const newMessages = chatData.messages.map((message) => ({
+        ...message,
+      }));
+      setMessages(newMessages);
+    } else {
+      setMessages([]);
+    }
+  };
+
+  const updateChatJSON = () => {
+    console.log(groupJson[reduxUser.Id].messages);
+    console.log(messages);
+
+    if (messages !== undefined && messages.length > 0) {
+      let updatedChatData;
+
+      if (chatJSON[reduxUser.Id]) {
+        // If the user's chatJSON already exists, update it with new messages
+        updatedChatData = {
+          ...chatJSON,
+          [reduxUser.Id]: {
+            ...chatJSON[reduxUser.Id],
+            messages: [...messages],
+          },
+        };
+
+        setInitialChatData(updatedChatData);
+      } else {
+        // If the user's chatJSON doesn't exist, use the groupJson instead
+        updatedChatData = {
+          ...groupJson,
+          [reduxUser.Id]: {
+            ...groupJson[reduxUser.Id],
+            messages: [...messages],
+          },
+        };
+
+        setInitialChatData(updatedChatData);
+      }
+    }
+  };
+
+  const handleDeleteMessages = () => {
+    selectedMessages.forEach((selectedMsg) => {
+      const { MessagesId, IdOfUser } = selectedMsg;
+      const updatedMessages = messages.map((m) => {
+        const isMessageSelected =
+          m.MessagesId === MessagesId && m.IdOfUser === IdOfUser;
+        return {
+          ...m,
+          IfRead: true,
+          IfDelete: isMessageSelected ? true : m.IfDelete, // Set IfDelete to true for selected messages
+          IfRemoved: isMessageSelected && m.IfDelete ? true : m.IfRemoved, // Set IfRemoved to true for selected messages
+          message: isMessageSelected
+            ? "⊘ This message has been deleted"
+            : m.message, // Change the message to "This message has been deleted"
+        };
+      });
+
+      setMessages(updatedMessages);
+    });
+
+    setSelectedMessages([]); // Clear the selected messages after updating
+    setMessageChange(true);
+  };
+
+  const handleMarkAsFavorite = () => {
+    selectedMessages.forEach((selectedMsg) => {
+      const { MessagesId, IdOfUser } = selectedMsg;
+      const updatedMessages = messages.map((m) => {
+        const isMessageSelected =
+          m.MessagesId === MessagesId && m.IdOfUser === IdOfUser;
+        return {
+          ...m,
+          IfRead: true,
+          IfFavorite: isMessageSelected ? true : m.IfFavorite, // Set IfFavorite to true for selected messages
+        };
+      });
+      setMessages(updatedMessages);
+    });
+
+    setSelectedMessages([]); // Clear the selected messages after updating
+    setMessageChange(true);
+  };
+
+  const handleSaveEditMessage = (newMessage) => {
+    selectedMessages.forEach((selectedMsg) => {
+      const { MessagesId, IdOfUser } = selectedMsg;
+      const updatedMessages = messages.map((m) => {
+        const isMessageSelected =
+          m.MessagesId === MessagesId && m.IdOfUser === IdOfUser;
+        return {
+          ...m,
+          IfRead: true,
+          IfEdit: isMessageSelected ? true : m.IfEdit, // Set IfEdit to true for selected messages
+          message: isMessageSelected ? newMessage : m.message, // Change the message to newMessage
+        };
+      });
+      setMessages(updatedMessages);
+    });
+
+    setSelectedMessages([]); // Clear the selected messages after updating
+    setMessageChange(true);
+  };
+
+  const findFirstMessagesOfDay = () => {
+    const firstMessages = {};
+    const dateFirstMessages = {};
+    messages.forEach((message) => {
+      const date = message.DateOfMsg;
+      if (!dateFirstMessages[date]) {
+        dateFirstMessages[date] = true;
+        firstMessages[message.MessagesId] = true;
+      }
+    });
+    return firstMessages;
+  };
+
+  const handleDataFromSelect = (isTrue) => {
+    console.log(isTrue);
+    setMessages([]); // Clear the selected messages after updating
+    setMessageChange(isTrue);
+  };
+
+  const firstMessagesOfDay = findFirstMessagesOfDay();
+
+  const firstUnreadMessage = messages.find((m) => !m.IfRead);
+
+  const setSearchText = (Content) => {
+    setSearchContent(Content);
+  };
+
+  useEffect(() => {
+    if (!isGroupContext) {
+      setInitialChatData(chatJSON);
+      handleSetMessages(chatJSON[reduxUser.Id]);
+    }
+
+    if (isGroupContext) {
+      setInitialChatData(groupJson);
+      handleSetMessages(groupJson[reduxUser.Id]);
+    }
+  }, [reduxUser.Id, groupJson]);
+
+  useEffect(() => {
+    if (messageChange) {
+      updateChatJSON();
+      setMessageChange(false);
+    }
+  }, [messages, messageChange]);
+
+  return (
+    <div className="window-Container">
+      <header className="window-header">
+        <HeaderWindow
+          userName={reduxUser.Name}
+          Img={reduxUser.Img}
+          selectedMessages={selectedMessages}
+          onDelete={handleDeleteMessages}
+          onFavorite={handleMarkAsFavorite}
+          onSaveMessage={handleSaveEditMessage}
+          onChange={handleDataFromSelect}
+          onSearch={setSearchText}
+        />
+      </header>
+
+      <main className="window-main">
+        {messages
+          .filter(
+            (m) => !m.IfRemoved && (m.IdOfUser === reduxUser.Id || !m.IfDelete)
+          ) // Filter out removed messages and messages deleted by another user (stranger)
+          .map((m, index) => {
+            // const isSelected = selectedMessages.includes(index);
+            const isFirstMessageOfDay = firstMessagesOfDay[m.MessagesId];
+            // console.log(m);
+            return (
+              <React.Fragment key={index}>
+                {firstUnreadMessage &&
+                  m.MessagesId === firstUnreadMessage.MessagesId && (
+                    <div className="window-UnreadMessage-separator">
+                      <div className="window-unread-line">
+                        <p className="window-p-Messages">Unread Messages</p>
+                      </div>
+                    </div>
+                  )}
+                {isFirstMessageOfDay && (
+                  <div className="window-message-separator">
+                    <div className="window-unread-line">
+                      <p className="window-p-Messages">{m.DateOfMsg}</p>
+                    </div>
+                  </div>
+                )}
+                <Message
+                  user={reduxUser.Name}
+                  msg={m}
+                  searchText={searchContent}
+                  onClick={() => handleSelectMessage(m)}
+                  selected={selectedMessages.some(
+                    (msg) =>
+                      msg.MessagesId === m.MessagesId &&
+                      msg.IdOfUser === m.IdOfUser
+                  )}
+                />
+              </React.Fragment>
+            );
+          })}
+      </main>
+
+      {reduxUser.Name !== "Window" && (
+        <footer className="window-padding">
+          <div className="window-send-container">
+            <input
+              type="text"
+              className="window-form-control"
+              placeholder="Type the message here"
+              value={message}
+              onChange={handleChange}
+            />
+            <FontAwesomeIcon
+              icon={faCircleArrowRight}
+              className="window-send-icon"
+              onClick={handleSendMessage}
+            />
+          </div>
+        </footer>
+      )}
+    </div>
+  );
+};

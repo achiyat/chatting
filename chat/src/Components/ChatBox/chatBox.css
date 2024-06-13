@@ -1,0 +1,134 @@
+.chatBox-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.chatBox-container:hover {
+  background-color: #e6e6e6;
+}
+
+.chatBox-overflow {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.chatBox-profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.chatBox-profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.chatBox-content {
+  flex-grow: 1;
+  margin-left: 10px;
+  width: 0;
+  min-width: 0;
+}
+
+.chatBox-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatBox-user {
+  font-weight: bold;
+}
+
+.chatBox-last-message-time {
+  color: #999;
+}
+
+.chatBox-notifications {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #25d366;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 50%;
+}
+
+.chatBox-message {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ChatBox component CSS */
+/* .chatBox-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.chatBox-container:hover {
+  background-color: #e6e6e6;
+}
+
+.chatBox-profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.chatBox-content {
+  flex-grow: 1;
+  margin-left: 10px;
+  width: 0;
+  min-width: 0;
+}
+
+.chatBox-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatBox-user {
+  font-weight: bold;
+}
+
+.chatBox-last-message-time {
+  color: #999;
+}
+
+.chatBox-notifications {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #25d366;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 50%;
+}
+
+.chatBox-message {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+
+/* .chatBox-message {
+  font-size: 14px;
+}
+
+.chatBox-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */

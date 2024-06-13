@@ -1,0 +1,27 @@
+.window1-myContainer {
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.window1-custom-header {
+  padding: 0.5rem;
+  border-bottom: 1px solid #000;
+}
+
+.window1-custom-main {
+  overflow: auto;
+  border-bottom: 1px solid #000;
+}
+
+.window1-custom-footer {
+  padding: 0.5rem;
+}
+
+.window1-custom-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0;
+}

@@ -1,0 +1,48 @@
+.welcome-Container {
+  display: flex;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  border-right: 1px solid #000000;
+  border-left: 1px solid #000000;
+  padding: 0;
+}
+
+.welcome-box-window {
+  background-color: #faf0e4;
+  flex: 1;
+  background-image: url("../../img/whatsapp-background-image.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.welcome-box-chats {
+  background-color: lightgray;
+  flex: 1;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+@media (min-width: 576px) {
+  .welcome-Container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .welcome-Container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .welcome-Container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .welcome-Container {
+    max-width: 1140px;
+  }
+}

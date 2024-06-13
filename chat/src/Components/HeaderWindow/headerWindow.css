@@ -1,0 +1,165 @@
+/* .headerWindow-overflow {
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.headerWindow-profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.headerWindow-profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.headerWindow-user {
+  width: 380px;
+  height: 25px;
+  margin-left: 10px; 
+}
+
+.headerWindow-icon {
+  color: white;
+}
+
+.headerWindow-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.headerWindow-title {
+  width: 25px;
+  height: 25px;
+}
+
+.headerWindow-flex {
+  display: flex;
+  align-items: center;
+} */
+
+/* margin-right: 10px; */
+
+/* 
+.headerWindow-flex-right {
+  display: flex;
+  align-items: center;
+}
+
+.headerWindow-borderIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #075e54;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.headerWindow-borderIcon:hover {
+  background-color: rgb(255, 255, 255, 0.5);
+} */
+
+/* Add your existing styles above */
+
+.headerWindow-overflow {
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.headerWindow-profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.headerWindow-profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.headerWindow-user {
+  width: 365px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.headerWindow-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.headerWindow-title {
+  width: 25px;
+  height: 25px;
+}
+
+.headerWindow-flex {
+  display: flex;
+  align-items: center;
+}
+
+.headerWindow-flex-right {
+  display: flex;
+  align-items: center;
+}
+
+.headerWindow-icon {
+  font-size: 0.875em;
+  color: white;
+}
+
+.headerWindow-borderIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #075e54;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.headerWindow-borderIcon:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.headerWindow-search-input {
+  position: relative;
+  margin-left: 10px;
+}
+
+.headerWindow-search-input input {
+  position: absolute;
+  top: -14px;
+  left: -165px;
+  width: 150px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  z-index: 1;
+}
+
+.headerWindow-highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+/* Add any other styles you want to include below */

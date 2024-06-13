@@ -1,0 +1,99 @@
+.createGroup-container {
+  /* max-width: 400px; */
+  width: 51vh;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.createGroup-container h2 {
+  margin-bottom: 20px;
+}
+
+.createGroup-input {
+  display: block;
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.createGroup-imageUpload {
+  margin-bottom: 10px;
+}
+
+.createGroup-imageUpload label {
+  display: block;
+  cursor: pointer;
+  color: black;
+}
+
+.createGroup-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+  background-color: #075e54;
+}
+
+.createGroup-btn:hover {
+  background-color: #096f63;
+}
+
+.createGroup-btn:disabled,
+.createGroup-btn:disabled:hover {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.createGroup-input .createGroup-btn {
+  transition: border-color 0.3s ease;
+}
+
+.createGroup-input:focus,
+.createGroup-btn:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.createGroup-input::placeholder {
+  color: #ccc;
+}
+
+.createGroup-input:hover {
+  border-color: #0056b3;
+}
+
+.createGroup-contactsList {
+  max-height: 200px; /* Set the maximum height for the list */
+  overflow-y: auto; /* Add a vertical scrollbar when content exceeds the height */
+  padding-right: 10px; /* Add some padding to the right to prevent scrollbar overlap */
+}
+
+.createGroup-checkbox {
+  margin-right: 8px;
+}
+
+.createGroup-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.createGroup-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
