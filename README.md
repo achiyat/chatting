@@ -5,6 +5,19 @@ Here is a video presentation of the project:
 
 [Watch the video](https://github.com/achiyat/chatting/raw/master/chat/img/presentation.mp4)
 
+# Image Gallery
+
+<p align="center">
+  <img src="https://github.com/achiyat/chatting/blob/master/chat/media/img/chat_pic.jpg" width="400"/>
+  <img src="https://github.com/achiyat/chatting/blob/master/chat/media/img/chat_pic4.jpg" width="300"/>
+</p>
+<p align="center">
+  <img src="https://github.com/achiyat/chatting/blob/master/chat/media/img/chat_pic1.jpg" width="225"/>
+  <img src="https://github.com/achiyat/chatting/blob/master/chat/media/img/chat_pic2.jpg" width="275"/>
+  <img src="https://github.com/achiyat/chatting/blob/master/chat/media/img/chat_pic3.jpg" width="275"/>
+</p>
+
+
 ## Feature Description
 
 | The chat list view   |
