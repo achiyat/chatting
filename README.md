@@ -15,7 +15,7 @@ Here is a video presentation of the project:
 | Each chat shows user’s picture, user’s name, last message text, last message time, and unread notifications              |
 | Notifications disappear when the user enters a chat                                                                      |
 | Options menu includes: add friend, add group, profile, settings, and logout                                              |
-
+<br/>
 
 | The chat message display   |
 |--------------------------------------------------------------------------------------------------------------------------------------|
@@ -29,7 +29,7 @@ Here is a video presentation of the project:
 | "My user" messages that are deleted are replaced with a note indicating the message was deleted (this note can also be permanently deleted) |
 | When there is a day gap between messages, a bubble with the date will be displayed                                                   |
 | Options menu includes: delete all messages or show only favorite messages                                                            |
-
+<br/>
 
 | Add a friend   |
 |--------------------------------------------------------------------------------------------------------------|
@@ -37,7 +37,7 @@ Here is a video presentation of the project:
 | Four fields can be filled: First Name, Last Name, Phone Number, and Picture                                  |
 | Only the Phone Number field is mandatory and not optional                                                    |
 | Two buttons are displayed: a "Close" button in red and a "Save" button in gray (inactive) or green (active)  |
-
+<br/>
 
 | Create Group   |
 |---------------------------------------------------------------------------------------------------------------------|
@@ -46,7 +46,7 @@ Here is a video presentation of the project:
 | Option to search for users                                                                                          |
 | At least one user must be selected (not optional)                                                                   |
 | A "Create" button is displayed in gray (inactive) or green (active)                                                 |
-
+<br/>
 
 | Group Settings   |
 |---------------------------------------------------------------------------------------------------------------------------------------|
