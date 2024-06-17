@@ -33,10 +33,6 @@ export const AddParticipant = () => {
     user.FullName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // console.log(filteredContacts);
-  // console.log(group);
-  console.log(selectedContacts);
-
   const handleAddParticipants = () => {
     const details = getDetails();
 

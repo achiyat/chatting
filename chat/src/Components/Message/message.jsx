@@ -60,20 +60,6 @@ export const Message = ({ msg, searchText, onClick, selected }) => {
     );
   }
 
-  // if (msg.IfMessageGroup) {
-  //   const isMessageUser = !msg.IfMessageGroup;
-  //   return (
-  //     <div
-  //       className={`message-container ${
-  //         isMessageUser ? "" : "message-center"
-  //       } ${selected ? "selected" : ""}`}
-  //       onClick={onClick}
-  //     >
-  //       <div className="message-body">{msg.message}</div>
-  //     </div>
-  //   );
-  // }
-
   if (msg.IfMessageGroup) {
     //const isMessageUser = msg.IfMessageGroup;
     return (
@@ -98,33 +84,5 @@ export const Message = ({ msg, searchText, onClick, selected }) => {
         <span className="message-time">{formattedTime}</span>
       </div>
     </div>
-
-    // <div
-    //   className={`message-container ${selected ? "selected" : ""} ${
-    //     isUserMessage ? "user-message" : "friend-message"
-    //   }`}
-    //   onClick={onClick}
-    // >
-    //   <div className="message-header">
-    //     <span className="message-sender">{msg.FromUser}</span>
-    //     <span className="message-time">{formattedTime}</span>
-    //   </div>
-    //   <div className="message-body">{highlightSearchText}</div>
-    // </div>
   );
 };
-
-// dir="rtl"
-
-// <div
-//   className={`message-container ${selected ? "selected" : ""} ${
-//     isUserMessage ? "user-message" : "friend-message"
-//   }`}
-//   onClick={onClick}
-// >
-//   <div className="message-header">
-//     <span className="message-sender">{msg.FromUser}</span>
-//     <span className="message-time">{formattedTime}</span>
-//   </div>
-//   <div className="message-body">{highlightSearchText}</div>
-// </div>

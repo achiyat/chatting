@@ -115,14 +115,3 @@ export const getFormattedTime = (time) => {
 export const getFormattedDate = (date) => {
   return new Date(date).toLocaleDateString("en-GB");
 };
-
-// export const getFormattedDate = (date, time) => {
-//   if (date) return new Date(date).toLocaleDateString("en-GB");
-//   if (time)
-//     return time instanceof Date
-//       ? time.toLocaleTimeString([], {
-//           hour: "2-digit",
-//           minute: "2-digit",
-//         })
-//       : "";
-// };

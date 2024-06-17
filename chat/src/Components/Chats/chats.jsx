@@ -178,16 +178,3 @@ export const Chats = (props) => {
     </div>
   );
 };
-
-// const [isDataSave, setIsDataSave] = useState(false);
-
-// {
-//   /* <HeaderChats onSave={handleSaveData} /> */
-// }
-// const handleSaveData = (groupData) => {
-//   console.log(groupData);
-//   console.log(chats);
-//   if (groupData) {
-//     //setIsDataSave(groupData);
-//   }
-// };

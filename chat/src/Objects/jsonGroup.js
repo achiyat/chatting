@@ -1,7 +1,5 @@
 import myPIC from "../../media/img/myPIC.jpg";
 import profile from "../../media/img/profile-picture.jpg";
-// import myPIC from "../img/myPIC.jpg";
-// import profile from "../img/profile-picture.jpg";
 
 export const GroupJSON = {
   "97d5f888-9bec-4524-a743-46b02f54fc95": {

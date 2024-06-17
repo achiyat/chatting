@@ -43,19 +43,3 @@ export const setGroupJson = (newGroupJson) => {
     payload: newGroupJson,
   };
 };
-
-// export const setUserDetails = (id, username, img) => {
-//   // console.log(img);
-//   // console.log(id, username);
-//   return {
-//     type: SET_USER_DETAILS,
-//     payload: { id, username, img },
-//   };
-// };
-
-// export const setMyUser = (id, username, img) => {
-//   return {
-//     type: SET_MY_USER,
-//     payload: { id, username, img },
-//   };
-// };

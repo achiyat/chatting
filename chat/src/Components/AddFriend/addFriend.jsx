@@ -125,30 +125,3 @@ export const AddFriend = ({ onClose }) => {
     </div>
   );
 };
-
-// const newChat = {
-//   IdChat: friendData.PhoneNumber,
-//   FirstName: friendData.FirstName,
-//   LastName: friendData.LastName,
-//   NameChat: friendData.FullName,
-//   img: friendData.Img,
-//   TimeOfMsg: "",
-//   DateOfMsg: "",
-//   message: "",
-//   notification: 0,
-// };
-
-// const newChat = {
-//   FirstName: friendData.FirstName,
-//   LastName: friendData.LastName,
-//   FullName: friendData.FullName,
-//   Image: friendData.Img,
-//   messages: [],
-// };
-// console.log(newChat);
-
-//setChats((prevChats) => [...prevChats, newChat]);
-//await addChatToJSON(newChat);
-// chatJSON[friendData.PhoneNumber] = newChat;
-// console.log(chatJSON);
-// console.log(newChat);

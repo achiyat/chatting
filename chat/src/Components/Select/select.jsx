@@ -4,8 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { ModalBox } from "../ModalBox/modalBox";
 import "./select.css";
-import { useDispatch, useSelector } from "react-redux";
-import { setChatsJson, setGroupJson } from "../../Redux/actions";
+import { useSelector } from "react-redux";
 import { useJsonUtils } from "../../Utils/jsonUtils";
 
 export const Select = ({ onData, select }) => {
@@ -14,10 +13,9 @@ export const Select = ({ onData, select }) => {
   const reduxUser = useSelector((state) => state.User);
   const chatJSON = useSelector((state) => state.chatJson);
   const groupJson = useSelector((state) => state.GroupJson);
-  const dispatch = useDispatch();
   const isGroupContext = groupJson.hasOwnProperty(reduxUser.Id);
 
-  const { updateChatJson, setInitialChatData } = useJsonUtils();
+  const { updateChatJson } = useJsonUtils();
 
   const handleButtonClick = () => {
     setIsOpen(!isOpen);

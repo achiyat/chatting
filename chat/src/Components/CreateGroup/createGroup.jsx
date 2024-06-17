@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { users } from "../../Objects/objUsers";
 import "./createGroup.css";
 import profile from "../../../media/img/profile-picture.jpg";
 import { useSelector, useDispatch } from "react-redux";
@@ -18,15 +17,11 @@ export const CreateGroup = ({ onClose }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const reduxMyUser = useSelector((state) => state.MyUser);
-  // console.log(reduxMyUser);
-
-  // const fullNames = Object.values(chatJSON).map((user) => user.FullName);
-  // console.log(fullNames);
-
   const groupJson = useSelector((state) => state.GroupJson);
   const dispatch = useDispatch();
 
-  // const addedMessages = MessageGroup(message);
+  // const fullNames = Object.values(chatJSON).map((user) => user.FullName);
+  // console.log(fullNames);
 
   const handleCreateGroup = () => {
     const details = getDetails();

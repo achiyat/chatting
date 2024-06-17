@@ -80,11 +80,6 @@ export const AboutOfGroup = () => {
     if (reduxUser.Id !== group.PrincipalAdminId) {
       const details = getDetails();
 
-      // console.log(2.2);
-      // const departureDate = {
-      //   DateOut: details.currentTime,
-      // };
-
       const leaveMessage = MessageGroup(
         `${reduxMyUser.Name} has left the group`
       );

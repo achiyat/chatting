@@ -14,15 +14,6 @@
   overflow: auto;
 }
 
-/* .window-main {
-  flex: 1;
-  overflow: hidden;
-}
-
-.window-main > * {
-  overflow: auto;
-} */
-
 .window-padding {
   padding: 0.5rem;
 }
@@ -83,92 +74,3 @@
   margin: 0 auto;
   width: fit-content;
 }
-
-/*
-.window-Container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.window-header {
-  padding: 0.5rem;
-  background-color: #075e54;
-}
-
-.window-background-image {
-  flex: 1;
-  background-image: url("https://theabbie.github.io/blog/assets/official-whatsapp-background-image.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-}
-
-.window-main {
-  flex: 1;
-}
-
-.window-padding {
-  padding: 0.5rem;
-}
-
-.window-form-control {
-  display: inline-block;
-  width: calc(100% - 40px); /* Adjust the width to leave space for the button 
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  box-sizing: border-box;
-}
-
-.window-send-container {
-  display: flex;
-  align-items: center;
-}
-
-.window-send-icon {
-  margin-left: 10px;
-  cursor: pointer;
-  font-size: 2rem;
-  color: #075e54;
-  background-color: #ffffff;
-  border-radius: 50%;
-}
-
-.window-UnreadMessage-separator {
-  background: rgba(255, 255, 255, 0.61);
-  backdrop-filter: blur(0px);
-  padding: 8px;
-}
-
-.window-message-separator {
-  margin-top: 8px;
-}
-
-.window-p-Messages {
-  margin: 0px 10px 0px 10px;
-  padding: 0;
-}
-
-.window-unread-line {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  color: #888;
-  background-color: white;
-  padding: 8px;
-  border-radius: 50px;
-  margin: 0 auto;
-  width: fit-content;
-}
-
-*/
