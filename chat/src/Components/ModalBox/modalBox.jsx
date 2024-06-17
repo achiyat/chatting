@@ -16,12 +16,9 @@ export const ModalBox = ({ onClose, onHandleFunction, option, Img }) => {
         return <GroupSettings onClose={onClose} onSave={onHandleFunction} />;
       case "pic":
         return (
-          <img
-            className="image"
-            src={Img}
-            alt="User Profile"
-            onClick={onClose}
-          />
+          <div className="modalBox-image">
+            <img src={Img} alt="User Profile" onClick={onClose} />
+          </div>
         );
       case "editMessage":
         return <EditMessage onSave={onHandleFunction} onCancel={onClose} />;

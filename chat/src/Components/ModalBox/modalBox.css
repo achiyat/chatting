@@ -22,7 +22,11 @@
   margin-top: 0;
 }
 
-.image {
+.modalBox-image {
+  width: 400px;
+}
+
+.modalBox-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;

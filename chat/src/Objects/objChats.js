@@ -7,8 +7,8 @@ import profile from "../img/profile-picture.jpg";
 // console.log(reduxMyUser.Name);
 
 export const chatJSON = {
-  A4321: {
-    PhoneNumber: "A4321",
+  "0540001001": {
+    PhoneNumber: "0540001001",
     FirstName: "User",
     LastName: "Name1",
     FullName: "User Name1",
@@ -30,7 +30,7 @@ export const chatJSON = {
       },
       {
         MessagesId: 2,
-        IdOfUser: "A4321",
+        IdOfUser: "0540001001",
         FromUser: "User Name1",
         Image: profile,
         DateTimeOfMsg: new Date("Tue Jul 04 2023 11:30:00"),
@@ -44,7 +44,7 @@ export const chatJSON = {
       },
       {
         MessagesId: 3,
-        IdOfUser: "A4321",
+        IdOfUser: "0540001001",
         FromUser: "User Name1",
         Image: profile,
         DateTimeOfMsg: new Date("Tue Jul 04 2023 11:31:00"),
@@ -58,7 +58,7 @@ export const chatJSON = {
       },
       {
         MessagesId: 4,
-        IdOfUser: "A4321",
+        IdOfUser: "0540001001",
         FromUser: "User Name1",
         Image: profile,
         DateTimeOfMsg: new Date("Tue Jul 04 2023 11:32:00"),
@@ -86,7 +86,7 @@ export const chatJSON = {
       },
       {
         MessagesId: 6,
-        IdOfUser: "A4321",
+        IdOfUser: "0540001001",
         FromUser: "User Name1",
         Image: profile,
         DateTimeOfMsg: new Date("Sat Jul 08 2023 11:30:00"),
@@ -100,7 +100,7 @@ export const chatJSON = {
       },
       {
         MessagesId: 7,
-        IdOfUser: "A4321",
+        IdOfUser: "0540001001",
         FromUser: "User Name1",
         Image: profile,
         DateTimeOfMsg: new Date("Sun Jul 09 2023 11:31:00"),
@@ -114,7 +114,7 @@ export const chatJSON = {
       },
       {
         MessagesId: 8,
-        IdOfUser: "A4321",
+        IdOfUser: "0540001001",
         FromUser: "User Name1",
         Image: profile,
         DateTimeOfMsg: new Date("Mon Jul 10 2023 11:32:00"),
@@ -128,8 +128,8 @@ export const chatJSON = {
       },
     ],
   },
-  B8765: {
-    PhoneNumber: "B8765",
+  "0540001002": {
+    PhoneNumber: "0540001002",
     FirstName: "User",
     LastName: "Name2",
     FullName: "User Name2",
@@ -165,7 +165,7 @@ export const chatJSON = {
       },
       {
         MessagesId: 3,
-        IdOfUser: "B8765",
+        IdOfUser: "0540001002",
         FromUser: "User Name2",
         Image: profile,
         DateTimeOfMsg: new Date("Thu Jul 06 2023 16:30:00"),
@@ -179,7 +179,7 @@ export const chatJSON = {
       },
       {
         MessagesId: 4,
-        IdOfUser: "B8765",
+        IdOfUser: "0540001002",
         FromUser: "User Name2",
         Image: profile,
         DateTimeOfMsg: new Date("Thu Jul 06 2023 17:38:00"),
@@ -221,7 +221,7 @@ export const chatJSON = {
       },
       {
         MessagesId: 7,
-        IdOfUser: "B8765",
+        IdOfUser: "0540001002",
         FromUser: "User Name2",
         Image: profile,
         DateTimeOfMsg: new Date("Sun Jul 09 2023 16:30:00"),
@@ -235,7 +235,7 @@ export const chatJSON = {
       },
       {
         MessagesId: 8,
-        IdOfUser: "B8765",
+        IdOfUser: "0540001002",
         FromUser: "User Name2",
         Image: profile,
         DateTimeOfMsg: new Date("Sun Jul 09 2023 17:38:00"),
@@ -268,7 +268,7 @@ export const chatJSON = {
 //   },
 //   {
 //     MessagesId: 2,
-//     IdOfUser: "A4321",
+//     IdOfUser: "0540001001",
 //     FromUser: "User Name1",
 //     Image: profile,
 //     DateTimeOfMsg: new Date("Tue Jul 04 2023 11:30:00"),
@@ -282,7 +282,7 @@ export const chatJSON = {
 //   },
 //   {
 //     MessagesId: 3,
-//     IdOfUser: "A4321",
+//     IdOfUser: "0540001001",
 //     FromUser: "User Name1",
 //     Image: profile,
 //     DateTimeOfMsg: new Date("Tue Jul 04 2023 11:31:00"),
@@ -296,7 +296,7 @@ export const chatJSON = {
 //   },
 //   {
 //     MessagesId: 4,
-//     IdOfUser: "A4321",
+//     IdOfUser: "0540001001",
 //     FromUser: "User Name1",
 //     Image: profile,
 //     DateTimeOfMsg: new Date("Tue Jul 04 2023 11:32:00"),
@@ -324,7 +324,7 @@ export const chatJSON = {
 //   },
 //   {
 //     MessagesId: 6,
-//     IdOfUser: "A4321",
+//     IdOfUser: "0540001001",
 //     FromUser: "User Name1",
 //     Image: profile,
 //     DateTimeOfMsg: new Date("Sat Jul 08 2023 11:30:00"),
@@ -338,7 +338,7 @@ export const chatJSON = {
 //   },
 //   {
 //     MessagesId: 7,
-//     IdOfUser: "A4321",
+//     IdOfUser: "0540001001",
 //     FromUser: "User Name1",
 //     Image: profile,
 //     DateTimeOfMsg: new Date("Sun Jul 09 2023 11:31:00"),
@@ -352,7 +352,7 @@ export const chatJSON = {
 //   },
 //   {
 //     MessagesId: 8,
-//     IdOfUser: "A4321",
+//     IdOfUser: "0540001001",
 //     FromUser: "User Name1",
 //     Image: profile,
 //     DateTimeOfMsg: new Date("Mon Jul 10 2023 11:32:00"),
