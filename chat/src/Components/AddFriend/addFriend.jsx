@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./addFriend.css";
 import { users } from "../../Objects/objUsers";
-import profile from "../../img/profile-picture.jpg";
+import profile from "../../../media/img/profile-picture.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { setChatsJson } from "../../Redux/actions";
 

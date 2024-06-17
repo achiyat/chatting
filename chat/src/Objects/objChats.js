@@ -1,6 +1,8 @@
 // import { useSelector } from "react-redux";
-import myPIC from "../img/myPIC.jpg";
-import profile from "../img/profile-picture.jpg";
+import myPIC from "../../media/img/myPIC.jpg";
+import profile from "../../media/img/profile-picture.jpg";
+// import myPIC from "../img/myPIC.jpg";
+// import profile from "../img/profile-picture.jpg";
 
 // const reduxMyUser = useSelector((state) => state.MyUser);
 // console.log(reduxMyUser.Id);

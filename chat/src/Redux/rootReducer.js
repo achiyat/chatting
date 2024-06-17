@@ -10,7 +10,7 @@ import {
 import { chatJSON } from "../Objects/objChats";
 import { GroupJSON } from "../Objects/jsonGroup";
 import { MyUser, User } from "../Objects/objUsers";
-// import myIMG from "../img/myIMG.jpg";
+// import myIMG from "../../media/img/myIMG.jpg";
 
 // const userReducer = (
 //   state = { Name: "Window", Id: null, Img: null },

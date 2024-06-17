@@ -50,7 +50,7 @@
 
 //   <div className="chatBox-overflow"></div>
 
-// import myPIC from "../../../img/myPIC.jpg";
+// import myPIC from "../../../media/img/myPIC.jpg";
 
 // {/* <div className="chatBox-profile-image"></div> */}
 

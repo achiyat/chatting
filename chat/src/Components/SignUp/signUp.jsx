@@ -1,4 +1,4 @@
-// import profile from "../../img/profile-picture.jpg";
+// import profile from "../"../../../media/img/profile-picture.jpg";
 // import { Logout } from "../Auth0/Logout/logout";
 import React from "react";
 import "./signUp.css";

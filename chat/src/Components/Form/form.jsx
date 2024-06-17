@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import profile from "../../img/profile-picture.jpg";
+import profile from "../../../media/img/profile-picture.jpg";
+// import profile from "../../img/profile-picture.jpg";
 import "./form.css";
 
 export const Form = () => {

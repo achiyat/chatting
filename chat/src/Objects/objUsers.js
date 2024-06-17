@@ -1,6 +1,10 @@
-import profile from "../img/profile-picture.jpg";
-import myPIC from "../img/myPIC.jpg";
-import myIMG from "../img/myIMG.jpg";
+import profile from "../../media/img/profile-picture.jpg";
+import myPIC from "../../media/img/myPIC.jpg";
+import myIMG from "../../media/img/myIMG.jpg";
+import sss from "../../media/img/myIMG.jpg";
+// import profile from "../img/profile-picture.jpg";
+// import myPIC from "../img/myPIC.jpg";
+// import myIMG from "../img/myIMG.jpg";
 
 export const User = {
   Name: "Window",
