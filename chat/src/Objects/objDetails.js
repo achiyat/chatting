@@ -10,30 +10,6 @@ export const getDetails = () => {
   };
 };
 
-const createMessage = (message, MyUser, isGroupMessage = true) => {
-  const details = getDetails();
-  // console.log(isGroupMessage);
-  return {
-    MessagesId: details.NewId,
-    IdOfUser: isGroupMessage ? "" : MyUser.Id,
-    FromUser: isGroupMessage ? "" : MyUser.Name,
-    Image: isGroupMessage ? "" : MyUser.Img,
-    DateTimeOfMsg: details.currentTime,
-    message,
-    IfRead: !isGroupMessage,
-    IfDelete: false,
-    IfRemoved: false,
-    IfFavorite: false,
-    IfEdit: false,
-    IfMessageGroup: isGroupMessage,
-  };
-};
-
-export const MessageUser = (message, MyUser) =>
-  createMessage(message, MyUser, false);
-
-export const MessageGroup = (message) => createMessage(message, null, true);
-
 export const createFriendOfGroup = (user, isPrincipalAdmin) => {
   const details = getDetails();
   const departureDate = [{ DateOut: null }];

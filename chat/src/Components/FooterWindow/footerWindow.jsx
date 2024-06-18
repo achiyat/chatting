@@ -1,15 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./footerWindow.css";
+import { MessageUser, updateMessagesIfRead } from "../../Utils/msgUtils";
 
 export const FooterWindow = ({
-  hasLeft,
-  reduxUser,
-  message,
-  handleChange,
-  handleSendMessage,
+  otherUser,
+  myUser,
+  group,
+  messages,
+  setMessages,
+  setMessageChange,
 }) => {
+  const [message, setMessage] = useState("");
+
+  const handleChange = (event) => {
+    setMessage(event.target.value);
+  };
+
+  const handleSendMessage = () => {
+    if (message.trim() !== "") {
+      const newMessage = MessageUser(message, myUser);
+      const updatedMessages = updateMessagesIfRead(messages);
+
+      setMessages([...updatedMessages, newMessage]);
+      setMessage("");
+      setMessageChange(true);
+    }
+  };
+
+  const hasLeft =
+    group?.Friends.find((friend) => friend.PhoneNumber === myUser.Id)?.IfLeft ||
+    false;
+
   return (
     <footer
       className={
@@ -21,7 +44,7 @@ export const FooterWindow = ({
           You have left the group so you can no longer send messages
         </div>
       ) : (
-        reduxUser.Name !== "Window" && (
+        otherUser.Name !== "Window" && (
           <div className="footerWindow-send-container">
             <input
               type="text"

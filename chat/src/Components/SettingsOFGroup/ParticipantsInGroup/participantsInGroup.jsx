@@ -4,7 +4,8 @@ import "./participantsInGroup.css";
 import { setGroupJson } from "../../../Redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faUserTie } from "@fortawesome/free-solid-svg-icons";
-import { MessageGroup, getDetails } from "../../../Objects/objDetails";
+import { getDetails } from "../../../Objects/objDetails";
+import { MessageGroup } from "../../../Utils/msgUtils";
 
 export const ParticipantsInGroup = () => {
   const groupJson = useSelector((state) => state.GroupJson);

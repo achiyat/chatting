@@ -5,11 +5,11 @@ import { setGroupJson, setUserDetails } from "../../../Redux/actions";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import "./aboutOfGroup.css";
 import {
-  MessageGroup,
   getDetails,
   getFormattedDate,
   getFormattedTime,
 } from "../../../Objects/objDetails";
+import { MessageGroup } from "../../../Utils/msgUtils";
 
 export const AboutOfGroup = () => {
   const groupJson = useSelector((state) => state.GroupJson);

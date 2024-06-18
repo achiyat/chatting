@@ -3,12 +3,9 @@ import "./createGroup.css";
 import profile from "../../../src/media/img/profile-picture.jpg";
 import { useSelector, useDispatch } from "react-redux";
 import { setGroupJson } from "../../Redux/actions";
-import {
-  MessageGroup,
-  createFriendOfGroup,
-  getDetails,
-} from "../../Objects/objDetails";
+import { createFriendOfGroup, getDetails } from "../../Objects/objDetails";
 import { chatJSON } from "../../Objects/objChats";
+import { MessageGroup } from "../../Utils/msgUtils";
 
 export const CreateGroup = ({ onClose }) => {
   const [groupName, setGroupName] = useState("");

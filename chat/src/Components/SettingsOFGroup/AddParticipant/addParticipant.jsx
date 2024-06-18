@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./addParticipant.css";
 import { setGroupJson } from "../../../Redux/actions";
-import { MessageGroup, getDetails } from "../../../Objects/objDetails";
+import { getDetails } from "../../../Objects/objDetails";
+import { MessageGroup } from "../../../Utils/msgUtils";
 
 export const AddParticipant = () => {
   const [searchQuery, setSearchQuery] = useState("");

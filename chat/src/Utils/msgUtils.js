@@ -1,6 +1,29 @@
-// messageUtils.js
+// msgUtils.js
+import { getDetails, getFormattedDate } from "../Objects/objDetails";
 
-import { getFormattedDate } from "../Objects/objDetails";
+export const MessageUser = (message, MyUser) =>
+  createMessage(message, MyUser, false);
+
+const createMessage = (message, MyUser, isGroupMessage = true) => {
+  const details = getDetails();
+  // console.log(isGroupMessage);
+  return {
+    MessagesId: details.NewId,
+    IdOfUser: isGroupMessage ? "" : MyUser.Id,
+    FromUser: isGroupMessage ? "" : MyUser.Name,
+    Image: isGroupMessage ? "" : MyUser.Img,
+    DateTimeOfMsg: details.currentTime,
+    message,
+    IfRead: !isGroupMessage,
+    IfDelete: false,
+    IfRemoved: false,
+    IfFavorite: false,
+    IfEdit: false,
+    IfMessageGroup: isGroupMessage,
+  };
+};
+
+export const MessageGroup = (message) => createMessage(message, null, true);
 
 export const updateMessagesIfRead = (messages) => {
   // Find and update messages where IfRead is false

@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Message } from "../Message/message";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import "./window.css";
 import { HeaderWindow } from "../HeaderWindow/headerWindow";
 import {
-  MessageUser,
   filterGroupMessagesByDate,
   getFormattedDate,
 } from "../../Objects/objDetails";
 
 import {
-  updateMessagesIfRead,
   updateMessagesIfDelete,
   updateMessagesIfFavorite,
   updateMessagesIfEdit,
@@ -22,7 +18,7 @@ import { useJsonUtils } from "../../Utils/jsonUtils";
 import { FooterWindow } from "../FooterWindow/footerWindow";
 
 export const Window = (props) => {
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
   const [selectedMessages, setSelectedMessages] = useState([]);
   const [messages, setMessages] = useState([]);
   const [messageChange, setMessageChange] = useState(false); // Track whether a message was sent
@@ -40,31 +36,6 @@ export const Window = (props) => {
   // console.log(thisGroup);
 
   const isGroupContext = groupJson.hasOwnProperty(reduxUser.Id);
-
-  // console.log(messages);
-  // messages.map((m) => {
-  //   console.log(m.IfFavorite, m.MessagesId);
-  // });
-
-  const hasLeft =
-    thisGroup?.Friends.find((friend) => friend.PhoneNumber === reduxMyUser.Id)
-      ?.IfLeft || false;
-  console.log(hasLeft);
-
-  const handleChange = (event) => {
-    setMessage(event.target.value);
-  };
-
-  const handleSendMessage = () => {
-    if (message.trim() !== "") {
-      const newMessage = MessageUser(message, reduxMyUser);
-      const updatedMessages = updateMessagesIfRead(messages);
-
-      setMessages([...updatedMessages, newMessage]);
-      setMessage("");
-      setMessageChange(true);
-    }
-  };
 
   const handleSelectMessage = (message) => {
     const isSelected = selectedMessages.some(
@@ -216,11 +187,12 @@ export const Window = (props) => {
       </main>
 
       <FooterWindow
-        hasLeft={hasLeft}
-        reduxUser={reduxUser}
-        message={message}
-        handleChange={handleChange}
-        handleSendMessage={handleSendMessage}
+        otherUser={reduxUser}
+        myUser={reduxMyUser}
+        group={thisGroup}
+        messages={messages}
+        setMessages={setMessages}
+        setMessageChange={setMessageChange}
       />
     </div>
   );
