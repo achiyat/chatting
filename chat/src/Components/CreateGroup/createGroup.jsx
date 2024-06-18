@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./createGroup.css";
-import profile from "../../../media/img/profile-picture.jpg";
+import profile from "../../../src/media/img/profile-picture.jpg";
 import { useSelector, useDispatch } from "react-redux";
 import { setGroupJson } from "../../Redux/actions";
 import {

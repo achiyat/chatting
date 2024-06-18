@@ -11,7 +11,7 @@
 .welcome-box-window {
   background-color: #faf0e4;
   flex: 1;
-  background-image: url("../../img/whatsapp-background-image.jpg");
+  background-image: url("../../media/img/whatsapp-background-image.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
