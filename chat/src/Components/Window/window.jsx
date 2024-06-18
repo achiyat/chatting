@@ -1,28 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Message } from "../Message/message";
 import { useSelector } from "react-redux";
 import "./window.css";
 import { HeaderWindow } from "../HeaderWindow/headerWindow";
-import {
-  filterGroupMessagesByDate,
-  getFormattedDate,
-} from "../../Objects/objDetails";
+import { filterGroupMessagesByDate } from "../../Objects/objDetails";
 
 import {
   updateMessagesIfDelete,
   updateMessagesIfFavorite,
   updateMessagesIfEdit,
-  findFirstMessagesOfDay,
 } from "../../Utils/msgUtils";
 import { useJsonUtils } from "../../Utils/jsonUtils";
 import { FooterWindow } from "../FooterWindow/footerWindow";
+import { MainWindow } from "../MainWindow/mainWindow";
 
 export const Window = (props) => {
-  // const [message, setMessage] = useState("");
   const [selectedMessages, setSelectedMessages] = useState([]);
   const [messages, setMessages] = useState([]);
   const [messageChange, setMessageChange] = useState(false); // Track whether a message was sent
-  const [searchContent, setSearchContent] = useState("");
+  const [searchContent, setSearchContent] = useState(""); //
   const { updateChatJson, setInitialChatData } = useJsonUtils();
   const reduxMyUser = useSelector((state) => state.MyUser);
   const reduxUser = useSelector((state) => state.User);
@@ -102,10 +97,6 @@ export const Window = (props) => {
     setSearchContent(Content);
   };
 
-  const firstMessagesOfDay = findFirstMessagesOfDay(messages);
-
-  const firstUnreadMessage = messages.find((m) => !m.IfRead);
-
   useEffect(() => {
     if (!isGroupContext) {
       console.log("useEffect-1", "isChat");
@@ -145,45 +136,13 @@ export const Window = (props) => {
       </header>
 
       <main className="window-main">
-        {messages
-          .filter(
-            (m) =>
-              !m.IfRemoved && (m.IdOfUser === reduxMyUser.Id || !m.IfDelete)
-          ) // Filter out removed messages and messages deleted by another user (stranger)
-          .map((m, index) => {
-            const formattedDate = getFormattedDate(m.DateTimeOfMsg);
-            const isFirstMessageOfDay = firstMessagesOfDay[m.MessagesId];
-            // console.log(messages);
-            return (
-              <React.Fragment key={index}>
-                {firstUnreadMessage &&
-                  m.MessagesId === firstUnreadMessage.MessagesId && (
-                    <div className="window-UnreadMessage-separator">
-                      <div className="window-unread-line">
-                        <p className="window-p-Messages">Unread Messages</p>
-                      </div>
-                    </div>
-                  )}
-                {isFirstMessageOfDay && (
-                  <div className="window-message-separator">
-                    <div className="window-unread-line">
-                      <p className="window-p-Messages">{formattedDate}</p>
-                    </div>
-                  </div>
-                )}
-                <Message
-                  msg={m}
-                  searchText={searchContent}
-                  onClick={() => handleSelectMessage(m)}
-                  selected={selectedMessages.some(
-                    (msg) =>
-                      msg.MessagesId === m.MessagesId &&
-                      msg.IdOfUser === m.IdOfUser
-                  )}
-                />
-              </React.Fragment>
-            );
-          })}
+        <MainWindow
+          MyUser={reduxMyUser}
+          messages={messages}
+          searchContent={searchContent}
+          selectedMessages={selectedMessages}
+          handleSelectMessage={handleSelectMessage}
+        />
       </main>
 
       <FooterWindow

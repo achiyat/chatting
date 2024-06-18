@@ -1,0 +1,32 @@
+.mainWindow-main {
+  flex: 1;
+  overflow: auto;
+}
+
+.mainWindow-UnreadMessage-separator {
+  background: rgba(255, 255, 255, 0.61);
+  backdrop-filter: blur(0px);
+  padding: 8px;
+}
+
+.mainWindow-message-separator {
+  margin-top: 8px;
+}
+
+.mainWindow-unread-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #888;
+  background-color: white;
+  padding: 8px;
+  border-radius: 50px;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.mainWindow-p-Messages {
+  margin: 0px 10px 0px 10px;
+  padding: 0;
+}

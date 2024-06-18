@@ -41,3 +41,13 @@
   margin: 0 auto;
   width: fit-content;
 }
+.window-Container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.window-header {
+  padding: 0.5rem;
+  background-color: #075e54;
+}
