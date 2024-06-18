@@ -8,11 +8,10 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import "./headerWindow.css";
-import { Select } from "../Select/select";
-import { selectJSON } from "../../Objects/jsonSelect";
 import { ModalBox } from "../ModalBox/modalBox";
 import { TooltipIcon } from "../TooltipIcon/tooltipIcon";
 import { useSelector } from "react-redux";
+import { SearchMsg } from "../SearchMsg/searchMsg";
 
 export const HeaderWindow = ({
   userName,
@@ -104,33 +103,13 @@ export const HeaderWindow = ({
                 </TooltipIcon>
               </div>
             </div>
-            <div>
-              <div className="headerWindow-flex">
-                {isSearchOpen && (
-                  <div>
-                    <input
-                      className="headerWindow-search-input"
-                      placeholder="Search..."
-                      value={searchText}
-                      onChange={handleSearchInputChange}
-                    />
-                  </div>
-                )}
-                <TooltipIcon text="Search" placement="bottom">
-                  <div
-                    className="headerWindow-borderIcon"
-                    onClick={handleSearchButtonClick}
-                  >
-                    <FontAwesomeIcon
-                      icon={faSearch}
-                      className="headerWindow-icon"
-                    />
-                  </div>
-                </TooltipIcon>
-                <Select onData={onChange} select={selectJSON.Window} />
-              </div>
-            </div>
-
+            <SearchMsg
+              isSearchOpen={isSearchOpen}
+              searchText={searchText}
+              handleSearchInputChange={handleSearchInputChange}
+              handleSearchButtonClick={handleSearchButtonClick}
+              onChange={onChange}
+            />
             {isModalOpen && (
               <ModalBox
                 onClose={() => setIsModalOpen(false)}
@@ -163,32 +142,13 @@ export const HeaderWindow = ({
                 </TooltipIcon>
               </div>
             </div>
-            <div>
-              <div className="headerWindow-flex">
-                {isSearchOpen && (
-                  <div className="headerWindow-search-input">
-                    <input
-                      type="text"
-                      placeholder="Search..."
-                      value={searchText}
-                      onChange={handleSearchInputChange}
-                    />
-                  </div>
-                )}
-                <TooltipIcon text="Search" placement="bottom">
-                  <div
-                    className="headerWindow-borderIcon"
-                    onClick={handleSearchButtonClick}
-                  >
-                    <FontAwesomeIcon
-                      icon={faSearch}
-                      className="headerWindow-icon"
-                    />
-                  </div>
-                </TooltipIcon>
-                <Select onData={onChange} select={selectJSON.Window} />
-              </div>
-            </div>
+            <SearchMsg
+              isSearchOpen={isSearchOpen}
+              searchText={searchText}
+              handleSearchInputChange={handleSearchInputChange}
+              handleSearchButtonClick={handleSearchButtonClick}
+              onChange={onChange}
+            />
           </>
         );
       case userName !== "Window":
@@ -208,33 +168,13 @@ export const HeaderWindow = ({
                 <div className="headerWindow-user">{userName}</div>
               </div>
             </div>
-            <div>
-              <div className="headerWindow-flex">
-                {isSearchOpen && (
-                  <div className="headerWindow-search-input">
-                    <input
-                      type="text"
-                      placeholder="Search..."
-                      value={searchText}
-                      onChange={handleSearchInputChange}
-                    />
-                  </div>
-                )}
-                <TooltipIcon text="Search" placement="bottom">
-                  <div
-                    className="headerWindow-borderIcon"
-                    onClick={handleSearchButtonClick}
-                  >
-                    <FontAwesomeIcon
-                      icon={faSearch}
-                      className="headerWindow-icon"
-                    />
-                  </div>
-                </TooltipIcon>
-                <Select onData={onChange} select={selectJSON.Window} />
-              </div>
-            </div>
-
+            <SearchMsg
+              isSearchOpen={isSearchOpen}
+              searchText={searchText}
+              handleSearchInputChange={handleSearchInputChange}
+              handleSearchButtonClick={handleSearchButtonClick}
+              onChange={onChange}
+            />
             {isModalOpen && (
               <ModalBox
                 onClose={closeModal}

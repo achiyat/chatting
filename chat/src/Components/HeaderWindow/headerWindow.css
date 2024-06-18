@@ -43,11 +43,6 @@
   align-items: center;
 }
 
-.headerWindow-flex-right {
-  display: flex;
-  align-items: center;
-}
-
 .headerWindow-icon {
   font-size: 0.875em;
   color: white;
@@ -65,23 +60,6 @@
 
 .headerWindow-borderIcon:hover {
   background-color: rgba(255, 255, 255, 0.5);
-}
-
-.headerWindow-search-input {
-  position: relative;
-  margin-left: 10px;
-}
-
-.headerWindow-search-input input {
-  position: absolute;
-  top: -14px;
-  left: -165px;
-  width: 150px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: white;
-  z-index: 1;
 }
 
 .headerWindow-highlight {

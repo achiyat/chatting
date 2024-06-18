@@ -1,0 +1,41 @@
+/* searchMsg.css */
+.searchMsg-flex {
+  display: flex;
+  align-items: center;
+}
+
+.searchMsg-search-input {
+  position: relative;
+  margin-left: 10px;
+}
+
+.searchMsg-search-input input {
+  position: absolute;
+  top: -14px;
+  left: -165px;
+  width: 150px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  z-index: 1;
+}
+
+.searchMsg-borderIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #075e54;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.searchMsg-borderIcon:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.searchMsg-icon {
+  font-size: 0.875em;
+  color: white;
+}
