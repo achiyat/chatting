@@ -1,17 +1,10 @@
 //headerWindow.jsx
 import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTrash,
-  faPenSquare,
-  faStar,
-  faSearch,
-} from "@fortawesome/free-solid-svg-icons";
 import "./headerWindow.css";
 import { ModalBox } from "../ModalBox/modalBox";
-import { TooltipIcon } from "../TooltipIcon/tooltipIcon";
 import { useSelector } from "react-redux";
 import { SearchMsg } from "../SearchMsg/searchMsg";
+import { ActionIcon } from "../ActionIcon/actionIcon";
 
 export const HeaderWindow = ({
   userName,
@@ -44,10 +37,6 @@ export const HeaderWindow = ({
     setIsModalOpen(true);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
   const handleSearchButtonClick = () => {
     setIsSearchOpen(!isSearchOpen);
     setSearchText("");
@@ -61,100 +50,29 @@ export const HeaderWindow = ({
     onSearch(searchText);
   }, [searchText]);
 
+  const canEdit =
+    selectedMessages.length === 1 &&
+    !selectedMessages[0].IfDelete &&
+    selectedMessages[0].FromUser === reduxMyUser.Name;
+
   const renderIcons = () => {
-    switch (true) {
-      case userName === "Window":
-        return <div className="headerWindow-title">{userName}</div>;
+    if (userName === "Window") {
+      return <div className="headerWindow-title">{userName}</div>;
+    }
 
-      case selectedMessages.length === 1 &&
-        !selectedMessages[0].IfDelete &&
-        selectedMessages[0].FromUser === reduxMyUser.Name:
-        return (
-          <>
-            <div>
-              <div className="headerWindow-flex">
-                <TooltipIcon text="Edit Message">
-                  <div
-                    className="headerWindow-borderIcon"
-                    onClick={handleEditMessage}
-                  >
-                    <FontAwesomeIcon
-                      icon={faPenSquare}
-                      className="headerWindow-icon"
-                    />
-                  </div>
-                </TooltipIcon>
-
-                <TooltipIcon text="Delete Message" placement="bottom">
-                  <div className="headerWindow-borderIcon" onClick={onDelete}>
-                    <FontAwesomeIcon
-                      icon={faTrash}
-                      className="headerWindow-icon"
-                    />
-                  </div>
-                </TooltipIcon>
-                <TooltipIcon text="Add to Favorites" placement="bottom">
-                  <div className="headerWindow-borderIcon" onClick={onFavorite}>
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="headerWindow-icon"
-                    />
-                  </div>
-                </TooltipIcon>
-              </div>
-            </div>
-            <SearchMsg
-              isSearchOpen={isSearchOpen}
-              searchText={searchText}
-              handleSearchInputChange={handleSearchInputChange}
-              handleSearchButtonClick={handleSearchButtonClick}
-              onChange={onChange}
-            />
-            {isModalOpen && (
-              <ModalBox
-                onClose={() => setIsModalOpen(false)}
-                onHandleFunction={handleSaveMessage}
-                option="editMessage"
+    if (userName !== "Window") {
+      return (
+        <>
+          <div>
+            {selectedMessages.length > 0 && (
+              <ActionIcon
+                onEdit={canEdit ? handleEditMessage : null}
+                onDelete={onDelete}
+                onFavorite={onFavorite}
+                canEdit={canEdit}
               />
             )}
-          </>
-        );
-      case selectedMessages.length > 0:
-        return (
-          <>
-            <div>
-              <div className="headerWindow-flex">
-                <TooltipIcon text="Delete Message" placement="bottom">
-                  <div className="headerWindow-borderIcon" onClick={onDelete}>
-                    <FontAwesomeIcon
-                      icon={faTrash}
-                      className="headerWindow-icon"
-                    />
-                  </div>
-                </TooltipIcon>
-                <TooltipIcon text="Add to Favorites" placement="bottom">
-                  <div className="headerWindow-borderIcon" onClick={onFavorite}>
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="headerWindow-icon"
-                    />
-                  </div>
-                </TooltipIcon>
-              </div>
-            </div>
-            <SearchMsg
-              isSearchOpen={isSearchOpen}
-              searchText={searchText}
-              handleSearchInputChange={handleSearchInputChange}
-              handleSearchButtonClick={handleSearchButtonClick}
-              onChange={onChange}
-            />
-          </>
-        );
-      case userName !== "Window":
-        return (
-          <>
-            <div>
+            {selectedMessages.length === 0 && (
               <div className="headerWindow-flex">
                 <div className="headerWindow-overflow">
                   <div className="headerWindow-profile-image">
@@ -167,26 +85,28 @@ export const HeaderWindow = ({
                 </div>
                 <div className="headerWindow-user">{userName}</div>
               </div>
-            </div>
-            <SearchMsg
-              isSearchOpen={isSearchOpen}
-              searchText={searchText}
-              handleSearchInputChange={handleSearchInputChange}
-              handleSearchButtonClick={handleSearchButtonClick}
-              onChange={onChange}
-            />
-            {isModalOpen && (
-              <ModalBox
-                onClose={closeModal}
-                option={"pic"}
-                Img={Img}
-              ></ModalBox>
             )}
-          </>
-        );
-      default:
-        return null;
+          </div>
+          <SearchMsg
+            isSearchOpen={isSearchOpen}
+            searchText={searchText}
+            handleSearchInputChange={handleSearchInputChange}
+            handleSearchButtonClick={handleSearchButtonClick}
+            onChange={onChange}
+          />
+          {isModalOpen && (
+            <ModalBox
+              onClose={() => setIsModalOpen(false)}
+              onHandleFunction={handleSaveMessage}
+              option={canEdit ? "editMessage" : "pic"}
+              Img={Img}
+            />
+          )}
+        </>
+      );
     }
+
+    return null;
   };
 
   return <div className="headerWindow-container">{renderIcons()}</div>;

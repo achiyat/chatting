@@ -1,8 +1,14 @@
-.headerWindow-overflow {
-  width: 25px;
+.headerWindow-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.headerWindow-user {
+  width: 365px;
   height: 25px;
-  overflow: hidden;
-  border-radius: 50%;
+  margin-left: 10px;
 }
 
 .headerWindow-profile-image {
@@ -20,22 +26,11 @@
   border-radius: 50%;
 }
 
-.headerWindow-user {
-  width: 365px;
-  height: 25px;
-  margin-left: 10px;
-}
-
-.headerWindow-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-}
-
-.headerWindow-title {
+.headerWindow-overflow {
   width: 25px;
   height: 25px;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 .headerWindow-flex {
@@ -43,26 +38,7 @@
   align-items: center;
 }
 
-.headerWindow-icon {
-  font-size: 0.875em;
-  color: white;
-}
-
-.headerWindow-borderIcon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #075e54;
+.headerWindow-title {
   width: 25px;
   height: 25px;
-  border-radius: 50%;
-}
-
-.headerWindow-borderIcon:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.headerWindow-highlight {
-  background-color: yellow;
-  font-weight: bold;
 }
