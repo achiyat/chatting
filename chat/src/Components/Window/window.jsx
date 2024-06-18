@@ -19,30 +19,37 @@ import {
   findFirstMessagesOfDay,
 } from "../../Utils/msgUtils";
 import { useJsonUtils } from "../../Utils/jsonUtils";
+import { FooterWindow } from "../FooterWindow/footerWindow";
 
 export const Window = (props) => {
-  const { updateChatJson, setInitialChatData } = useJsonUtils();
-
-  const reduxMyUser = useSelector((state) => state.MyUser);
-
-  const reduxUser = useSelector((state) => state.User);
-  const chatJson = useSelector((state) => state.chatJson);
-  const thisChat = chatJson[reduxUser.Id];
-
-  const groupJson = useSelector((state) => state.GroupJson);
-  const thisGroup = groupJson[reduxUser.Id];
-
   const [message, setMessage] = useState("");
   const [selectedMessages, setSelectedMessages] = useState([]);
   const [messages, setMessages] = useState([]);
   const [messageChange, setMessageChange] = useState(false); // Track whether a message was sent
   const [searchContent, setSearchContent] = useState("");
+  const { updateChatJson, setInitialChatData } = useJsonUtils();
+  const reduxMyUser = useSelector((state) => state.MyUser);
+  const reduxUser = useSelector((state) => state.User);
+  const chatJson = useSelector((state) => state.chatJson);
+  const thisChat = chatJson[reduxUser.Id];
+  const groupJson = useSelector((state) => state.GroupJson);
+  const thisGroup = groupJson[reduxUser.Id];
+  // console.log(reduxUser.Id);
+  // console.log(chatJson);
+  // console.log(reduxMyUser);
+  // console.log(thisGroup);
+
   const isGroupContext = groupJson.hasOwnProperty(reduxUser.Id);
 
   // console.log(messages);
   // messages.map((m) => {
   //   console.log(m.IfFavorite, m.MessagesId);
   // });
+
+  const hasLeft =
+    thisGroup?.Friends.find((friend) => friend.PhoneNumber === reduxMyUser.Id)
+      ?.IfLeft || false;
+  console.log(hasLeft);
 
   const handleChange = (event) => {
     setMessage(event.target.value);
@@ -208,24 +215,13 @@ export const Window = (props) => {
           })}
       </main>
 
-      {reduxUser.Name !== "Window" && (
-        <footer className="window-padding">
-          <div className="window-send-container">
-            <input
-              type="text"
-              className="window-form-control"
-              placeholder="Type the message here"
-              value={message}
-              onChange={handleChange}
-            />
-            <FontAwesomeIcon
-              icon={faCircleArrowRight}
-              className="window-send-icon"
-              onClick={handleSendMessage}
-            />
-          </div>
-        </footer>
-      )}
+      <FooterWindow
+        hasLeft={hasLeft}
+        reduxUser={reduxUser}
+        message={message}
+        handleChange={handleChange}
+        handleSendMessage={handleSendMessage}
+      />
     </div>
   );
 };
