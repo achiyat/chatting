@@ -1,4 +1,5 @@
-// msgUtils.js
+// messageUtils.js
+
 import { getDetails, getFormattedDate } from "../Objects/objDetails";
 
 export const MessageUser = (message, MyUser) =>
@@ -14,7 +15,7 @@ const createMessage = (message, MyUser, isGroupMessage = true) => {
     Image: isGroupMessage ? "" : MyUser.Img,
     DateTimeOfMsg: details.currentTime,
     message,
-    IfRead: !isGroupMessage,
+    IfRead: true,
     IfDelete: false,
     IfRemoved: false,
     IfFavorite: false,

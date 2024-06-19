@@ -9,8 +9,10 @@ export const User = {
 };
 
 export const MyUser = {
-  Name: "achiya",
   Id: "0540001308",
+  Name: "achiya",
+  Last: "tzuriel",
+  FullName: "achiya tzuriel",
   Img: myIMG,
 };
 

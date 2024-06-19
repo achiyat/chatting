@@ -20,7 +20,7 @@ export const createFriendOfGroup = (user, isPrincipalAdmin) => {
     PhoneNumber: user.PhoneNumber || user.Id,
     FirstName: user.FirstName || user.Name,
     LastName: user.LastName ? user.LastName : "",
-    Img: user.Img || user.Image,
+    Img: user.Image || user.Img,
     IfManager: isPrincipalAdmin,
     Status: isPrincipalAdmin ? "Principal Admin" : "",
     IfLeft: false,

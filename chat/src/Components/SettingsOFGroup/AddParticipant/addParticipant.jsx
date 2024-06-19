@@ -151,8 +151,9 @@ export const AddParticipant = () => {
 
     // console.log(selectedContacts);
   };
-  console.log(!myUser.IfManager);
-  console.log(!myUser.IfLeft && !myUser.IfManager);
+
+  console.log(!myUser?.IfManager);
+  console.log(!myUser?.IfLeft);
 
   return (
     <div className="addParticipant-container">
@@ -181,7 +182,7 @@ export const AddParticipant = () => {
               />
             ) : (
               <>
-                {!myUser.IfLeft && myUser.IfManager && (
+                {!myUser?.IfLeft && myUser?.IfManager && (
                   <input
                     type="checkbox"
                     defaultChecked={selectedContacts.includes(user.PhoneNumber)}

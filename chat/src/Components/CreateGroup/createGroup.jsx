@@ -4,7 +4,6 @@ import profile from "../../../src/media/img/profile-picture.jpg";
 import { useSelector, useDispatch } from "react-redux";
 import { setGroupJson } from "../../Redux/actions";
 import { createFriendOfGroup, getDetails } from "../../Objects/objDetails";
-import { chatJSON } from "../../Objects/objChats";
 import { MessageGroup } from "../../Utils/msgUtils";
 
 export const CreateGroup = ({ onClose }) => {
@@ -15,10 +14,8 @@ export const CreateGroup = ({ onClose }) => {
 
   const reduxMyUser = useSelector((state) => state.MyUser);
   const groupJson = useSelector((state) => state.GroupJson);
+  const chatJSON = useSelector((state) => state.chatJson);
   const dispatch = useDispatch();
-
-  // const fullNames = Object.values(chatJSON).map((user) => user.FullName);
-  // console.log(fullNames);
 
   const handleCreateGroup = () => {
     const details = getDetails();
@@ -30,15 +27,10 @@ export const CreateGroup = ({ onClose }) => {
     // Create the object representing the PrincipalAdmin
     const adminContact = createFriendOfGroup(reduxMyUser, isUserMessage);
 
-    console.log(adminContact);
-    console.log(filteredContacts);
-    console.log(selectedContacts);
     // Get details of the selected contacts and set ifManager to false for them
     const peopleContacts = filteredContacts
       .filter((user) => selectedContacts.includes(user.PhoneNumber))
       .map((user) => createFriendOfGroup(user, !isUserMessage));
-
-    console.log(peopleContacts);
 
     const userNames = peopleContacts
       .map((contact) => `${contact.FirstName} ${contact.LastName}`)
@@ -48,8 +40,6 @@ export const CreateGroup = ({ onClose }) => {
       MessageGroup(`${reduxMyUser.Name} created the group`),
       MessageGroup(`${reduxMyUser.Name} added ${userNames}`),
     ];
-
-    console.log(initialMessages);
 
     // Add the new group to the existing GroupJSON object
     const addNewGroupToJson = {
@@ -65,8 +55,6 @@ export const CreateGroup = ({ onClose }) => {
         messages: initialMessages, // Add the initial messages
       },
     };
-
-    console.log(addNewGroupToJson);
 
     // Dispatch an action to update the Redux state with the modified GroupJSON
     dispatch(setGroupJson(addNewGroupToJson));
@@ -96,7 +84,6 @@ export const CreateGroup = ({ onClose }) => {
     user.FullName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  console.log(filteredContacts);
   const isCreateButtonDisabled = selectedContacts.length === 0;
 
   return (

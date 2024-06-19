@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import "./window.css";
 import { HeaderWindow } from "../HeaderWindow/headerWindow";
 import { filterGroupMessagesByDate } from "../../Objects/objDetails";
-
+import { useJsonUtils } from "../../Utils/jsonUtils";
+import { FooterWindow } from "../FooterWindow/footerWindow";
+import { MainWindow } from "../MainWindow/mainWindow";
 import {
   updateMessagesIfDelete,
   updateMessagesIfFavorite,
   updateMessagesIfEdit,
 } from "../../Utils/msgUtils";
-import { useJsonUtils } from "../../Utils/jsonUtils";
-import { FooterWindow } from "../FooterWindow/footerWindow";
-import { MainWindow } from "../MainWindow/mainWindow";
+import "./window.css";
 
 export const Window = (props) => {
   const [selectedMessages, setSelectedMessages] = useState([]);
@@ -25,10 +24,6 @@ export const Window = (props) => {
   const thisChat = chatJson[reduxUser.Id];
   const groupJson = useSelector((state) => state.GroupJson);
   const thisGroup = groupJson[reduxUser.Id];
-  // console.log(reduxUser.Id);
-  // console.log(chatJson);
-  // console.log(reduxMyUser);
-  // console.log(thisGroup);
 
   const isGroupContext = groupJson.hasOwnProperty(reduxUser.Id);
 

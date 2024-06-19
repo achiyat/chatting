@@ -171,6 +171,17 @@ export const AboutOfGroup = () => {
   const date = getFormattedDate(group.DateTime);
   const time = getFormattedTime(group.DateTime);
 
+  console.log(reduxMyUser);
+  console.log(group.Friends);
+  console.log(
+    group.Friends.find(
+      (friend) =>
+        friend.Status !== "Principal Admin" &&
+        friend.PhoneNumber === reduxMyUser.Id &&
+        !friend.IfLeft
+    )
+  );
+
   return (
     <div className="aboutGroup-container">
       <div className="aboutGroup-container-image">
