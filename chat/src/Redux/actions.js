@@ -1,7 +1,6 @@
 // actions.js
 
 export const SET_USER_DETAILS = "SET_USER_DETAILS";
-
 export const setUserDetails = (id, name, img) => {
   const user_details = {
     Name: name,

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./footerWindow.css";
-import { MessageUser, updateMessagesIfRead } from "../../Utils/msgUtils";
+import { MessageUser, handleIsRead } from "../../Utils/msgUtils";
+import { useJsonUtils } from "../../Utils/jsonUtils";
 
 export const FooterWindow = ({
   otherUser,
@@ -13,6 +14,7 @@ export const FooterWindow = ({
   setMessageChange,
 }) => {
   const [message, setMessage] = useState("");
+  const { updateChatJson } = useJsonUtils();
 
   const handleChange = (event) => {
     setMessage(event.target.value);
@@ -21,8 +23,10 @@ export const FooterWindow = ({
   const handleSendMessage = () => {
     if (message.trim() !== "") {
       const newMessage = MessageUser(message, myUser);
-      const updatedMessages = updateMessagesIfRead(messages);
+      const updatedMessages = handleIsRead(messages);
 
+      updateChatJson([...updatedMessages, newMessage]);
+      console.log("Set-Messages");
       setMessages([...updatedMessages, newMessage]);
       setMessage("");
       setMessageChange(true);

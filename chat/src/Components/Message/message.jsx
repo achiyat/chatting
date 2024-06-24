@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { getFormattedTime } from "../../Objects/objDetails";
 
 export const Message = ({ msg, searchText, onClick, selected }) => {
+  // console.log(msg);
   const reduxMyUser = useSelector((state) => state.MyUser);
   //console.log(msg.IfDelete, msg);
   // console.log(reduxMyUser.Name);

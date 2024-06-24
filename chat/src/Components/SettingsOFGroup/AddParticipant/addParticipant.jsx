@@ -5,7 +5,7 @@ import { setGroupJson } from "../../../Redux/actions";
 import { getDetails } from "../../../Objects/objDetails";
 import { MessageGroup } from "../../../Utils/msgUtils";
 
-export const AddParticipant = () => {
+export const AddParticipant = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedContacts, setSelectedContacts] = useState([]);
   const dispatch = useDispatch();

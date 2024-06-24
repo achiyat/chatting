@@ -26,68 +26,51 @@ const createMessage = (message, MyUser, isGroupMessage = true) => {
 
 export const MessageGroup = (message) => createMessage(message, null, true);
 
-export const updateMessagesIfRead = (messages) => {
-  // Find and update messages where IfRead is false
-  messages
-    .filter((m) => !m.IfRead) // Filter out messages where IfRead is false
+export const handleIsRead = (messages) => {
+  return messages
+    .filter((m) => !m.IfRead)
     .forEach((m) => {
-      m.IfRead = true; // Update IfRead to true for filtered messages
+      m.IfRead = true;
     });
-
-  return messages;
 };
 
 export const updateMessagesIfDelete = (messages, selectedMessages) => {
-  // Create a map of messages' indices for quick lookup
-  const messageIndexMap = new Map();
-  messages.forEach((m, index) => {
-    messageIndexMap.set(`${m.MessagesId}-${m.IdOfUser}`, index);
-  });
+  // Create a Set of keys for selected messages
+  const messageKeys = setKeys(selectedMessages);
 
-  // Iterate over selected messages and update only them
-  selectedMessages.forEach((msg) => {
+  // Iterate through messages once to update
+  messages.forEach((msg) => {
     const key = `${msg.MessagesId}-${msg.IdOfUser}`;
-    if (messageIndexMap.has(key)) {
-      const index = messageIndexMap.get(key);
-      const updatedMessage = {
-        ...messages[index],
-        IfDelete: true,
-        IfRemoved: messages[index].IfDelete ? true : messages[index].IfRemoved,
-        message: "⊘ This message has been deleted",
-      };
-      messages[index] = updatedMessage; // This line is crucial to update the messages array
+    if (messageKeys.has(key)) {
+      msg.IfRemoved = msg.IfDelete ? true : msg.IfRemoved;
+      msg.IfDelete = true;
+      msg.message = "⊘ This message has been deleted";
     }
   });
 
-  return updateMessagesIfRead(messages);
+  return handleIsRead(messages);
 };
 
-// messages.map((m) => {
-//     console.log(m.IfFavorite, m.MessagesId);
-//   });
+const setKeys = (selectedMessages) => {
+  return new Set(
+    selectedMessages.map((msg) => `${msg.MessagesId}-${msg.IdOfUser}`)
+  );
+};
 
 export const updateMessagesIfFavorite = (messages, selectedMessages) => {
-  // Create a map of messages' indices for quick lookup
-  const messageIndexMap = new Map();
-  messages.forEach((m, index) => {
-    messageIndexMap.set(`${m.MessagesId}-${m.IdOfUser}`, index);
-  });
+  // Create a Set of keys for selected messages
+  const messageKeys = setKeys(selectedMessages);
 
-  // Iterate over selected messages and update only them
-  selectedMessages.forEach((msg) => {
+  // Iterate through messages once to update
+  messages.forEach((msg) => {
     const key = `${msg.MessagesId}-${msg.IdOfUser}`;
-    if (messageIndexMap.has(key)) {
-      const index = messageIndexMap.get(key);
-      const updatedMessage = {
-        ...messages[index],
-        IfRead: true,
-        IfFavorite: true,
-      };
-      messages[index] = updatedMessage; // Update the message in the original array
+    if (messageKeys.has(key)) {
+      msg.IfRead = true;
+      msg.IfFavorite = true;
     }
   });
 
-  return updateMessagesIfRead(messages);
+  return handleIsRead(messages);
 };
 
 export const updateMessagesIfEdit = (
@@ -95,51 +78,33 @@ export const updateMessagesIfEdit = (
   selectedMessages,
   newMessage
 ) => {
-  // Create a map of messages' indices for quick lookup
-  const messageIndexMap = new Map();
-  messages.forEach((m, index) => {
-    messageIndexMap.set(`${m.MessagesId}-${m.IdOfUser}`, index);
-  });
+  // Create a Set of keys for selected messages
+  const messageKeys = setKeys(selectedMessages);
 
-  // Iterate over selected messages and update only them
-  selectedMessages.forEach((msg) => {
+  // Iterate through messages once to update
+  messages.forEach((msg) => {
     const key = `${msg.MessagesId}-${msg.IdOfUser}`;
-    if (messageIndexMap.has(key)) {
-      const index = messageIndexMap.get(key);
-      const isMessageSelected = true; // Assuming all selected messages are being edited
-      const updatedMessage = {
-        ...messages[index],
-        IfRead: true,
-        IfEdit: isMessageSelected ? true : messages[index].IfEdit,
-        message: isMessageSelected ? newMessage : messages[index].message,
-      };
-      messages[index] = updatedMessage; // Update the message in the original array
+    if (messageKeys.has(key)) {
+      msg.IfRead = true;
+      msg.IfEdit = true;
+      msg.message = newMessage;
     }
   });
 
-  return updateMessagesIfRead(messages);
+  return handleIsRead(messages);
 };
-
-// export const setNewMessages = (chatData) => {
-//   if (chatData && chatData.messages) {
-//     console.log(chatData.messages);
-//     return chatData.messages.map((m) => ({
-//       ...m,
-//     }));
-//   } else {
-//     return [];
-//   }
-// };
 
 export const findFirstMessagesOfDay = (messages) => {
   const firstMessages = {};
-  const dateFirstMessages = {};
-  messages.forEach((message) => {
+  const seenDates = new Set();
+
+  for (let message of messages) {
     const formattedDate = getFormattedDate(message.DateTimeOfMsg);
-    if (!dateFirstMessages[formattedDate]) {
-      dateFirstMessages[formattedDate] = true;
+    if (!seenDates.has(formattedDate)) {
+      seenDates.add(formattedDate);
       firstMessages[message.MessagesId] = true;
     }
-  });
+  }
+
   return firstMessages;
 };

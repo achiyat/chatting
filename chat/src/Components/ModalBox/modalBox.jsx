@@ -4,16 +4,19 @@ import { AddFriend } from "../AddFriend/addFriend";
 import { EditMessage } from "../EditMessage/editMessage";
 import { CreateGroup } from "../CreateGroup/createGroup";
 import { GroupSettings } from "../GroupSettings/groupSettings";
+import { Favorites } from "../Favorites/favorites";
 
 export const ModalBox = ({ onClose, onHandleFunction, option, Img }) => {
   const renderModalContent = () => {
     switch (option) {
       case "addFriend":
-        return <AddFriend onClose={onClose} onSave={onHandleFunction} />;
+        return <AddFriend onClose={onClose} />;
       case "createGroup":
-        return <CreateGroup onClose={onClose} onSave={onHandleFunction} />; // Render appropriate component for createGroup option
-      case "GroupSettings":
-        return <GroupSettings onClose={onClose} onSave={onHandleFunction} />;
+        return <CreateGroup onClose={onClose} />; // Render appropriate component for createGroup option
+      case "groupSettings":
+        return <GroupSettings />;
+      case "favorites":
+        return <Favorites />;
       case "pic":
         return (
           <div className="modalBox-image">

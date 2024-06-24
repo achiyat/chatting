@@ -43,7 +43,7 @@ export const selectJSON = {
       },
       {
         id: 3,
-        option: "GroupSettings",
+        option: "groupSettings",
         title: "Group settings",
       },
     ],

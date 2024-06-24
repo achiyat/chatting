@@ -7,7 +7,7 @@ import { faTrash, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { getDetails } from "../../../Objects/objDetails";
 import { MessageGroup } from "../../../Utils/msgUtils";
 
-export const ParticipantsInGroup = () => {
+export const ParticipantsInGroup = (props) => {
   const groupJson = useSelector((state) => state.GroupJson);
   const reduxUser = useSelector((state) => state.User);
   const reduxMyUser = useSelector((state) => state.MyUser);
@@ -63,6 +63,7 @@ export const ParticipantsInGroup = () => {
       ...group,
       Friends: updatedFriends,
       messages: [...group.messages, removedMessages],
+      IfRead: true,
     };
 
     console.log(updatedGroup.Friends[2]);

@@ -1,3 +1,4 @@
+// window.jsx
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { HeaderWindow } from "../HeaderWindow/headerWindow";
@@ -24,8 +25,9 @@ export const Window = (props) => {
   const thisChat = chatJson[reduxUser.Id];
   const groupJson = useSelector((state) => state.GroupJson);
   const thisGroup = groupJson[reduxUser.Id];
-
   const isGroupContext = groupJson.hasOwnProperty(reduxUser.Id);
+
+  // console.log(messages);
 
   const handleSelectMessage = (message) => {
     const isSelected = selectedMessages.some(
@@ -50,24 +52,12 @@ export const Window = (props) => {
     }
   };
 
-  const handleSetMessages = (chatData) => {
-    if (chatData && chatData.messages) {
-      console.log(chatData.messages);
-      setMessages(chatData.messages);
-    } else {
-      setMessages([]);
-    }
-  };
-
   const handleUpdateMessages = (updateFunction, newMessage) => {
-    const updatedMessages = updateFunction(
-      messages,
-      selectedMessages,
-      newMessage
-    );
-    setMessages(updatedMessages);
-    setSelectedMessages([]); // Clear the selected messages after updating
-    setMessageChange(true);
+    // console.log(selectedMessages);
+    // const msgs = updateFunction(messages, selectedMessages, newMessage);
+    // updateChatJson(msgs);
+    updateChatJson(updateFunction(messages, selectedMessages, newMessage));
+    setSelectedMessages([]);
   };
 
   const handleDeleteMessages = () => {
@@ -82,17 +72,23 @@ export const Window = (props) => {
     handleUpdateMessages(updateMessagesIfEdit, newMessage);
   };
 
-  const handleDataFromSelect = (data) => {
-    console.log(data);
-    setMessages(data);
-    setMessageChange(true);
-  };
-
   const setSearchText = (Content) => {
     setSearchContent(Content);
   };
 
+  const handleSetMessages = (chatData) => {
+    console.log("Set-Messages");
+    if (chatData && chatData.messages) {
+      console.log(chatData.messages);
+      setMessages(chatData.messages);
+    } else {
+      setMessages([]);
+    }
+  };
+
   useEffect(() => {
+    console.log("useEffect-1");
+    console.log("Set-Messages");
     if (!isGroupContext) {
       console.log("useEffect-1", "isChat");
       setInitialChatData(chatJson);
@@ -105,15 +101,7 @@ export const Window = (props) => {
       const newGroup = filterGroupMessagesByDate(thisGroup, reduxMyUser.Id);
       handleSetMessages(newGroup);
     }
-  }, [reduxUser.Id, groupJson]);
-
-  useEffect(() => {
-    if (messageChange) {
-      console.log("useEffect-2", "messageChange");
-      updateChatJson(messages);
-      setMessageChange(false);
-    }
-  }, [messages, messageChange]);
+  }, [thisChat, thisGroup]);
 
   return (
     <div className="window-Container">
@@ -125,7 +113,7 @@ export const Window = (props) => {
           onDelete={handleDeleteMessages}
           onFavorite={handleMarkAsFavorite}
           onSaveMessage={handleSaveEditMessage}
-          onChange={handleDataFromSelect}
+          // onChange={handleDataFromSelect}
           onSearch={setSearchText}
         />
       </header>

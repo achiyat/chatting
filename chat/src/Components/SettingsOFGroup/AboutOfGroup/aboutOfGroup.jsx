@@ -11,7 +11,7 @@ import {
 } from "../../../Objects/objDetails";
 import { MessageGroup } from "../../../Utils/msgUtils";
 
-export const AboutOfGroup = () => {
+export const AboutOfGroup = (props) => {
   const groupJson = useSelector((state) => state.GroupJson);
   const reduxUser = useSelector((state) => state.User);
   const reduxMyUser = useSelector((state) => state.MyUser);
@@ -292,7 +292,8 @@ export const AboutOfGroup = () => {
             <ul>
               {group.Friends.map(
                 (friend) =>
-                  friend.Status !== "Principal Admin" && (
+                  friend.Status !== "Principal Admin" &&
+                  !friend.IfLeft && (
                     <li key={friend.PhoneNumber}>
                       <input
                         type="checkbox"

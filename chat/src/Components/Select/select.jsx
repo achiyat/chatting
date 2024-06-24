@@ -7,11 +7,10 @@ import "./select.css";
 import { useSelector } from "react-redux";
 import { useJsonUtils } from "../../Utils/jsonUtils";
 
-export const Select = ({ onData, select }) => {
+export const Select = ({ select }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const reduxUser = useSelector((state) => state.User);
-  const chatJSON = useSelector((state) => state.chatJson);
   const groupJson = useSelector((state) => state.GroupJson);
   const isGroupContext = groupJson.hasOwnProperty(reduxUser.Id);
 
@@ -25,8 +24,9 @@ export const Select = ({ onData, select }) => {
     if (
       option === "addFriend" ||
       option === "createGroup" ||
-      option === "GroupSettings"
+      option === "groupSettings"
     ) {
+      console.log(option);
       setIsOpen(false);
       setSelectedOption(option);
     }
@@ -36,42 +36,21 @@ export const Select = ({ onData, select }) => {
     }
 
     if (option === "favorites") {
-      console.log(option);
-      showFavoriteMessages();
+      setSelectedOption(option);
     }
 
-    if (option === "GroupSettings") {
+    if (option === "groupSettings") {
       console.log(option);
     }
-  };
-
-  const showFavoriteMessages = () => {
-    const messages = isGroupContext
-      ? groupJson[reduxUser.Id].messages
-      : chatJSON[reduxUser.Id].messages;
-
-    console.log(select.Options);
-    const favoriteMessages = messages.filter((msg) => msg.IfFavorite);
-    updateChatJson(favoriteMessages);
-    setSelectedOption(null);
-    onData(favoriteMessages);
   };
 
   const ClearAllChat = () => {
     updateChatJson([]);
     setSelectedOption(null);
-    onData([]);
   };
 
   const closeModal = () => {
     setSelectedOption(null);
-  };
-
-  const handleSaveData = (data) => {
-    if (data) {
-      onData(data);
-    }
-    closeModal();
   };
 
   const handleDropdownBlur = () => {
@@ -94,7 +73,7 @@ export const Select = ({ onData, select }) => {
         <ul className="select-dropdown-menu">
           {select.Options.map(
             (o) =>
-              (isGroupContext || o.option !== "GroupSettings") && (
+              (isGroupContext || o.option !== "groupSettings") && (
                 <li key={o.id} onClick={() => handleOptionSelect(o.option)}>
                   {o.title}
                 </li>
@@ -104,11 +83,7 @@ export const Select = ({ onData, select }) => {
       </div>
 
       {selectedOption && (
-        <ModalBox
-          onClose={closeModal}
-          onHandleFunction={handleSaveData}
-          option={selectedOption}
-        />
+        <ModalBox onClose={closeModal} option={selectedOption} />
       )}
     </>
   );

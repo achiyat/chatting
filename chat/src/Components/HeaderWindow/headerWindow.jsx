@@ -13,7 +13,7 @@ export const HeaderWindow = ({
   onDelete,
   onFavorite,
   onSaveMessage,
-  onChange,
+  // onChange,
   onSearch,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -92,7 +92,7 @@ export const HeaderWindow = ({
             searchText={searchText}
             handleSearchInputChange={handleSearchInputChange}
             handleSearchButtonClick={handleSearchButtonClick}
-            onChange={onChange}
+            // onChange={onChange}
           />
           {isModalOpen && (
             <ModalBox
