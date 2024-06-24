@@ -23,7 +23,10 @@ export const FooterWindow = ({
   const handleSendMessage = () => {
     if (message.trim() !== "") {
       const newMessage = MessageUser(message, myUser);
+      console.log(newMessage);
+      console.log(messages);
       const updatedMessages = handleIsRead(messages);
+      console.log(updatedMessages);
 
       updateChatJson([...updatedMessages, newMessage]);
       console.log("Set-Messages");

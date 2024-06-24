@@ -27,11 +27,14 @@ const createMessage = (message, MyUser, isGroupMessage = true) => {
 export const MessageGroup = (message) => createMessage(message, null, true);
 
 export const handleIsRead = (messages) => {
-  return messages
-    .filter((m) => !m.IfRead)
+  // Find and update messages where IfRead is false
+  messages
+    .filter((m) => !m.IfRead) // Filter out messages where IfRead is false
     .forEach((m) => {
       m.IfRead = true;
     });
+
+  return messages;
 };
 
 export const updateMessagesIfDelete = (messages, selectedMessages) => {
