@@ -1,15 +1,12 @@
 # chatting
 
-## Video Presentation
-
-Here is a video presentation of the project:
-[Watch the video](https://github.com/achiyat/chatting/blob/master/chat/src/media/video/presentation.mp4)
+## 🎥 Video Presentation
 
 Here is a video presentation of the project:
 [Watch the video](https://github.com/achiyat/chatting/raw/master/chat/src/media/video/presentation.mp4)
 
 
-# Image Gallery
+# 📸 Image Gallery
 
 <p align="center">
   <img src="https://github.com/achiyat/chatting/blob/master/chat/src/media/img/chat_pic.jpg" width="400"/>
