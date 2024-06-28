@@ -5,6 +5,10 @@
 Here is a video presentation of the project:
 [Watch the video](https://github.com/achiyat/chatting/blob/master/chat/src/media/video/presentation.mp4)
 
+Here is a video presentation of the project:
+[Watch the video](https://github.com/achiyat/chatting/raw/master/chat/src/media/video/presentation.mp4)
+
+
 # Image Gallery
 
 <p align="center">
