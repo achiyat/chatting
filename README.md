@@ -1,4 +1,8 @@
-# chatting
+# 💻 chatting App
+
+## 📖 Overview
+
+This chat application is designed with a focus on dynamic manipulation of fictitious objects using Redux, allowing for seamless addition, editing, and deletion of chats and messages. The application aims to provide an intuitive and responsive user experience, mimicking the behavior of a fully functional chat app without relying on a backend API.
 
 ## 🎥 Video Presentation
 
@@ -18,7 +22,7 @@ Here is a video presentation of the project:
   <img src="https://github.com/achiyat/chatting/blob/master/chat/src/media/img/chat_pic3.jpg" width="275"/>
 </p>
 
-## Feature Description
+## 📋 Feature Description
 
 | The chat list view                                                                                          |
 | ----------------------------------------------------------------------------------------------------------- |
