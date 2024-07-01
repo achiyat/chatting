@@ -9,6 +9,9 @@ This chat application is designed with a focus on dynamic manipulation of fictit
 Here is a video presentation of the project:
 [Watch the video](https://resume-achiya-tzuriel.netlify.app/static/media/chat_video.b93b37d39e7d74670930.mp4)
 
+Or you can visit my website and watch it there:
+[Click here](https://resume-achiya-tzuriel.netlify.app/)
+
 # 📸 Image Gallery
 
 <p align="center">
@@ -75,3 +78,19 @@ Here is a video presentation of the project:
 | Option to add or remove users (by any admin)                                                                                                    |
 | Option to add or remove users from group management; admins can add/remove other admins but cannot remove the principal admin                   |
 | Anyone can leave the group using the exit button, except the principal admin, who must first transfer their role to another user before leaving |
+
+<br/>
+
+## 📞 Contact
+
+📧 **Email:** [achiya308@gmail.com](mailto:achiya308@gmail.com)
+
+🔗 **LinkedIn:** [Achiya Tzuriel](https://www.linkedin.com/in/achiya-tzuriel/)
+
+🔗 **Personal website Link:** [Personal website](https://resume-achiya-tzuriel.netlify.app/)
+
+🔗 **Project Link:** [PhotoWeb](https://github.com/achiyat/PhotoWeb)
+
+Thanks for visiting my GitHub profile! 😊
+
+**Achiya Tzuriel**
