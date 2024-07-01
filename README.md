@@ -7,7 +7,7 @@ This chat application is designed with a focus on dynamic manipulation of fictit
 ## 🎥 Video Presentation
 
 Here is a video presentation of the project:
-<a href="https://resume-achiya-tzuriel.netlify.app/static/media/chat_video.b93b37d39e7d74670930.mp4" target="_blank">Watch the video</a>
+[Watch the video](https://resume-achiya-tzuriel.netlify.app/static/media/chat_video.b93b37d39e7d74670930.mp4)
 
 # 📸 Image Gallery
 
