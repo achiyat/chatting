@@ -7,8 +7,8 @@ This chat application is designed with a focus on dynamic manipulation of fictit
 ## 🎥 Video Presentation
 
 Here is a video presentation of the project:
-[Watch the video](https://resume-achiya-tzuriel.netlify.app/static/media/chat_video.b93b37d39e7d74670930.mp4)
-
+[Watch the video](https://www.youtube.com/watch?v=fIc5YkfNNwQ)
+https://www.youtube.com/watch?v=fIc5YkfNNwQ
 Or you can visit my website and watch it there:
 [Click here](https://resume-achiya-tzuriel.netlify.app/)
 
