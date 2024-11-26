@@ -1,16 +1,16 @@
 # 💻 chatting App
 
+Here is a video presentation of the project:
+[Watch the video](https://www.youtube.com/watch?v=fIc5YkfNNwQ)
+
+Or you can visit my website and watch it there:
+[Click here](https://resume-achiya-tzuriel.netlify.app/)
+
+The project was tested and scored: ⭐⭐⭐⭐⭐
+
 ## 📖 Overview
 
 This chat application is designed with a focus on dynamic manipulation of fictitious objects using Redux, allowing for seamless addition, editing, and deletion of chats and messages. The application aims to provide an intuitive and responsive user experience, mimicking the behavior of a fully functional chat app without relying on a backend API.
-
-## 🎥 Video Presentation
-
-Here is a video presentation of the project:
-[Watch the video](https://www.youtube.com/watch?v=fIc5YkfNNwQ)
-https://www.youtube.com/watch?v=fIc5YkfNNwQ
-Or you can visit my website and watch it there:
-[Click here](https://resume-achiya-tzuriel.netlify.app/)
 
 # 📸 Image Gallery
 
